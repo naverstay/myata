@@ -22,8 +22,20 @@
   "source": "src/index.pug",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "dev": "parcel",
-    "build": "parcel build"
+    "dev": "parcel -p 3006",
+    "build": "parcel build",
+    "deploy": "surge --project ./dist --domain lean-land.surge.sh",
+    "prebuild": "shx rm -rf dist"
+  },
+  "staticFiles": {
+    "staticFiles": {
+      "staticPath": [
+        {
+          "staticPath": "src/favicon",
+          "watcherGlob": "**"
+        }
+      ]
+    }
   },
   "parcel-namer-struct": [
     {
@@ -45,14 +57,19 @@
         "jpg",
         "png"
       ],
+      "match": "/assets/",
       "dest": "/images/"
     }
   ],
   "devDependencies": {
-    "@parcel/transformer-pug": "2.7.0",
-    "@parcel/transformer-sass": "2.7.0",
-    "parcel": "^2.7.0",
+    "@parcel/packager-raw-url": "2.9.3",
+    "@parcel/transformer-pug": "2.9.3",
+    "@parcel/transformer-sass": "2.9.3",
+    "@parcel/transformer-webmanifest": "2.9.3",
+    "parcel": "^2.9.3",
     "parcel-namer-struct": "^1.0.0",
-    "posthtml-beautify": "^0.7.0"
+    "parcel-plugin-static-files-copy": "^1.2.4",
+    "posthtml-beautify": "^0.7.0",
+    "shx": "^0.3.4"
   }
 }

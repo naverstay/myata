@@ -1,0 +1,49 @@
+@mixin respond-to-max($custom) {
+  @media only screen and (max-width: $custom - 1) {
+    @content;
+  }
+}
+
+@mixin respond-to-min($custom1) {
+  @media only screen and (min-width: $custom1) {
+    @content;
+  }
+}
+
+@mixin respond-min-max($custom2, $custom3) {
+  @media only screen and (min-width: $custom2) and (max-width: $custom3) {
+    @content;
+  }
+}
+
+@mixin respond-to-min-out-max($custom3, $custom2) {
+  @media only screen and (max-width: $custom3 - 1), only screen and (min-width: $custom2 + 1) {
+    @content;
+  }
+}
+
+
+@mixin custom-scroll {
+  scrollbar-color: $scroll-thumb $scroll-track;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background-color: $scroll-track;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: $scroll-thumb;
+  }
+}

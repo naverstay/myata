@@ -1,0 +1,49 @@
+@import "var";
+
+
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  background: $color_white;
+  margin: 22px 43px;
+  padding: 14px;
+  border-radius: 38px;
+}
+
+.logo {
+  padding: 0 8px;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.nav {
+  padding-right: 10px;
+}
+
+.navigation {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 68px;
+
+  li {
+
+  }
+
+  a {
+    transition: color .3s;
+    text-transform: uppercase;
+    color: $color_gray;
+
+    &:hover {
+      color: $color_green;
+    }
+  }
+}
+
+.download {
+
+}

@@ -1,0 +1,53 @@
+@import "var";
+
+.promo {
+  border-radius: 80px;
+  background: $color_white;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 30px;
+  padding: 25px 50px 75px 105px;
+
+  &--left {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    padding-top: 80px;
+  }
+
+  &--right {
+    display: flex;
+    flex-flow: row;
+  }
+
+  &--screen {
+    margin: 0 -18px;
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    + .promo--screen {
+      margin-top: 60px;
+      margin-bottom: -60px;
+    }
+  }
+
+  &--app {
+    display: flex;
+    gap: 12px;
+    max-width: 330px;
+    flex-wrap: wrap;
+
+    .btn {
+      padding: 0 12px;
+    }
+  }
+
+  &--title {
+    font-size: 48px;
+    line-height: 55px;
+    margin-bottom: 50px;
+  }
+}

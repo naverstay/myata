@@ -1,21 +1,31 @@
-h1 {
-  font-weight: bolder;
-  font-size: 64px;
+@import "var";
+@import "extands";
+@import "reset";
+@import "header";
+@import "promo";
+@import "button";
+
+html {
+  --scroll-thumb: #{$color_green};
+  --scroll-track: #{$color_white};
+
+  @include custom-scroll();
+  overflow-y: scroll;
+  overflow-x: clip;
+  min-width: 1400px;
+
+  * {
+    @include custom-scroll();
+  }
 }
 
 body {
-  background: linear-gradient(78deg, #222, #555) no-repeat fixed;
-  background-size: cover;
-  color: #eee;
+  font: 500 14px/1.2 $Ubuntu;
+  color: $color_gray;
+  background: #f1f3f2;
 }
 
-a {
-  display: inline-block;
-  padding: 10px;
-  background-color: #fff;
-  color: #000;
-
-  &:hover {
-    background-color: #484848;
-  }
+.section {
+  margin: 0 auto;
+  max-width: 1392px;
 }

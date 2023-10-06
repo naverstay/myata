@@ -1,0 +1,32 @@
+@import "var";
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-size);
+  padding: 0 30px;
+  font: 400 18px/22px $Roboto;
+
+  &--round {
+    border-radius: calc(var(--btn-size, 0) / 2);
+  }
+
+  &--green {
+    transition: background .3s, color .3s;
+    background: $color_green;
+    color: $color_white;
+
+    &:hover {
+      background: darken($color_green, 5%);
+    }
+  }
+
+  &.__s-48 {
+    --btn-size: 48px;
+  }
+
+  &.__s-54 {
+    --btn-size: 54px;
+  }
+}
