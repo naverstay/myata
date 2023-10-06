@@ -22,11 +22,11 @@
   "source": "src/index.pug",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "dev": "parcel -p 3006",
-    "build": "parcel build",
-    "predeploy": "shx rm -rf deploy && parcel build --dist-dir ./deploy",
-    "deploy": "surge --project ./deploy --domain lean-land.surge.sh",
-    "prebuild": "shx rm -rf dist"
+    "dev": "parcel -p 3007",
+    "prebuild": "shx rm -rf deploy",
+    "build": "parcel build --dist-dir ./deploy",
+    "predeploy": "npm run build",
+    "deploy": "surge --project ./deploy --domain lean-land.surge.sh"
   },
   "staticFiles": {
     "staticFiles": {
