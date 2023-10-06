@@ -24,7 +24,8 @@
   "scripts": {
     "dev": "parcel -p 3006",
     "build": "parcel build",
-    "deploy": "surge --project ./dist --domain lean-land.surge.sh",
+    "predeploy": "shx rm -rf deploy && parcel build --dist-dir ./deploy",
+    "deploy": "surge --project ./deploy --domain lean-land.surge.sh",
     "prebuild": "shx rm -rf dist"
   },
   "staticFiles": {

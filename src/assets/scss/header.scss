@@ -1,6 +1,5 @@
 @import "var";
 
-
 .header {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -11,7 +10,8 @@
 }
 
 .logo {
-  padding: 0 8px;
+  padding: 0 3px;
+  margin: -15px 0;
 
   img {
     max-width: 100%;
@@ -28,6 +28,7 @@
   align-items: center;
   justify-content: center;
   gap: 68px;
+  display: none;
 
   li {
 
