@@ -5,6 +5,7 @@
     "..."
   ],
   "optimizers": {
+    "*.{jpg,jpeg,png}": [],
     "*.html": []
   }
 }

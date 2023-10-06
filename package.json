@@ -53,11 +53,11 @@
     },
     {
       "type": [
+        "svg",
         "jpeg",
         "jpg",
         "png"
       ],
-      "match": "/assets/",
       "dest": "/images/"
     }
   ],
