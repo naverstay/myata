@@ -7,5 +7,10 @@
   "optimizers": {
     "*.{jpg,jpeg,png}": [],
     "*.html": []
-  }
+  },
+  "transformers": {
+      "*.css": [
+        "@parcel/transformer-postcss"
+      ]
+    }
 }

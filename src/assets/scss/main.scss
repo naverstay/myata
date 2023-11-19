@@ -12,7 +12,6 @@ html {
   @include custom-scroll();
   overflow-y: scroll;
   overflow-x: clip;
-  min-width: 1400px;
 
   * {
     @include custom-scroll();
@@ -27,5 +26,33 @@ body {
 
 .section {
   margin: 0 auto;
-  max-width: 1392px;
+  max-width: 1248px;
+}
+
+@each $key, $value in $screens {
+
+  .show__before-#{$key},
+  .show__after-#{$key} {
+    display: none;
+  }
+
+  @include respond-to-min(map-get($screens, $key)) {
+    .show__after-#{$key} {
+      display: unset;
+    }
+
+    .hide__after-#{$key} {
+      display: none;
+    }
+  }
+
+  @include respond-to-max(map-get($screens, $key)) {
+    .show__before-#{$key} {
+      display: unset;
+    }
+
+    .hide__before-#{$key} {
+      display: none;
+    }
+  }
 }

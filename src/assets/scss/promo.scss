@@ -4,9 +4,8 @@
   border-radius: 80px;
   background: $color_white;
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 30px;
-  padding: 25px 50px 75px 105px;
+  grid-template-columns: 1fr;
+  gap: 18px;
 
   &--left {
     display: flex;
@@ -46,9 +45,57 @@
     }
   }
 
+  &--stat {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0 auto;
+    max-width: 336px;
+
+    @include respond-to-min($screen_md) {
+      margin: 0;
+    }
+
+    &_item {
+      border-left: 2px solid $color_mint;
+      padding: 0 8px;
+
+      @include respond-to-min($screen_md) {
+        padding: 0 14px;
+      }
+    }
+
+    b {
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 30px;
+
+      @include respond-to-min($screen_md) {
+        font-size: 28px;
+        line-height: 32px;
+      }
+    }
+
+    p {
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 16px;
+
+      @include respond-to-min($screen_xl) {
+        font-size: 12px;
+      }
+    }
+  }
+
   &--title {
     font-size: 48px;
     line-height: 55px;
     margin-bottom: 50px;
   }
+
+  @include respond-to-min($screen_xl) {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 30px;
+    padding: 25px 50px 75px 105px;
+  }
+
 }

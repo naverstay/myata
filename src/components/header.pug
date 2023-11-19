@@ -1,14 +1,14 @@
 mixin header()
-  header.section: .header
+  header.header-holder: .section: .header
     a.logo(href='/')
-      img(src='./assets/svg/logo.svg')
+      img(src='./assets/svg/logo_s.svg')
 
     nav.nav
       ul.navigation
-        li: a(href='#') Преимущества
-        li: a(href='#') Частые вопросы
-        li: a(href='#') Текст-заглушка
-        li: a(href='#') Текст-заглушка
+        each item in navigation
+          li: a(href='#')= item
 
     .download
-      a.btn.btn--green.__s-48.btn--round(href='#') Скачать приложение
+      a.btn.btn--green.__s-48.btn--round(href='#')
+        span Скачать
+        span приложение

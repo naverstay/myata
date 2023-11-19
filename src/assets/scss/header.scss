@@ -3,10 +3,18 @@
 .header {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  background: $color_white;
   margin: 22px 43px;
   padding: 14px;
   border-radius: 38px;
+  transition: background .3s;
+
+  &-holder {
+    border-radius: 0 0 16px 16px;
+  }
+
+  &.__fixed {
+    background: $color_white;
+  }
 }
 
 .logo {
@@ -24,11 +32,10 @@
 
 .navigation {
   min-height: 100%;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   gap: 68px;
-  display: none;
 
   li {
 
@@ -42,6 +49,10 @@
     &:hover {
       color: $color_green;
     }
+  }
+
+  @include respond-to-min($screen_lg) {
+    display: flex;
   }
 }
 
