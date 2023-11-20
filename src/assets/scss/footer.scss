@@ -1,0 +1,21 @@
+@import "var";
+
+.footer {
+  padding: 14px;
+
+  &--download {
+
+    p {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 18px;
+    }
+  }
+
+
+  @include respond-to-min($screen_lg) {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    margin: 22px 43px;
+  }
+}

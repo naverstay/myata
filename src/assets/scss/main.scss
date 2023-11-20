@@ -4,6 +4,25 @@
 @import "header";
 @import "promo";
 @import "button";
+@import "footer";
+
+:root {
+  box-sizing: border-box;
+  height: 100%;
+  --fancybox-bg: rgba(0, 0, 0, 0.8);
+  --app-height: 100vh;
+  --app-scroll-size: 0;
+  --menu-width: 380px;
+  --sat: env(safe-area-inset-top);
+  --sar: env(safe-area-inset-right);
+  --sab: env(safe-area-inset-bottom);
+  --sal: env(safe-area-inset-left);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  @media (hover: none) {
+    --app-scroll-size: 0 !important;
+  }
+}
 
 html {
   --scroll-thumb: #{$color_green};
@@ -12,6 +31,8 @@ html {
   @include custom-scroll();
   overflow-y: scroll;
   overflow-x: clip;
+  min-height: 100%;
+  display: flex;
 
   * {
     @include custom-scroll();
@@ -22,24 +43,129 @@ body {
   font: 500 14px/1.2 $Ubuntu;
   color: $color_gray;
   background: #f1f3f2;
+  flex: 1 0 100%;
 }
 
 .section {
+  position: relative;
+  z-index: 1;
   margin: 0 auto;
   max-width: 1248px;
+
+  &--holder {
+    --section-radius: 30px;
+    position: relative;
+    padding-bottom: 35px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+    }
+
+    @include respond-to-min($screen_md) {
+      padding-bottom: 50px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      --section-radius: 90px;
+      padding-bottom: 75px;
+    }
+
+    @include respond-to-min($screen_wide) {
+      --section-radius: 120px;
+      padding-bottom: 100px;
+    }
+
+    &.__start {
+      &::before {
+        border-top-left-radius: var(--section-radius);
+      }
+    }
+
+    &.__end {
+      &::before {
+        border-bottom-right-radius: var(--section-radius);
+      }
+    }
+
+    &.__white {
+      background: $color_white;
+
+      &::before {
+        background: $color_gray_light;
+      }
+    }
+
+    &.__gray {
+      background: $color_gray_light;
+
+      &::before {
+        background: $color_white;
+      }
+    }
+  }
 }
 
-@each $key, $value in $screens {
+.flex {
+  display: flex;
 
-  .show__before-#{$key},
-  .show__after-#{$key} {
-    display: none;
+  &.__column {
+    flex-flow: column nowrap;
   }
 
+  &.__wrap {
+    flex-wrap: wrap;
+  }
+
+  &.__between {
+    justify-content: space-between;
+  }
+
+  &.__start {
+    justify-content: flex-start;
+  }
+
+  &.__center {
+    justify-content: center;
+  }
+
+  &.__end {
+    justify-content: flex-end;
+  }
+
+  &.__start-align {
+    align-items: flex-start;
+  }
+
+  &.__center-align {
+    align-items: center;
+  }
+
+  &.__end-align {
+    align-items: end;
+  }
+
+  &.__stretch-align {
+    align-items: stretch;
+  }
+}
+
+
+@each $key, $value in $screens {
+  //.show__before-#{$key},
+  //.show__after-#{$key} {
+  //  display: none;
+  //}
+
   @include respond-to-min(map-get($screens, $key)) {
-    .show__after-#{$key} {
-      display: unset;
-    }
+    //.show__after-#{$key} {
+    //  display: unset;
+    //}
 
     .hide__after-#{$key} {
       display: none;
@@ -47,9 +173,9 @@ body {
   }
 
   @include respond-to-max(map-get($screens, $key)) {
-    .show__before-#{$key} {
-      display: unset;
-    }
+    //.show__before-#{$key} {
+    //  display: unset;
+    //}
 
     .hide__before-#{$key} {
       display: none;

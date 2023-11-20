@@ -1959,15 +1959,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cssesc@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "cssesc@npm:3.0.0"
-  bin:
-    cssesc: bin/cssesc
-  checksum: 6bcfd898662671be15ae7827120472c5667afb3d7429f1f917737f3bf84c4176003228131b643ae74543f17a394446247df090c597bb9a728cce298606ed0aa7
-  languageName: node
-  linkType: hard
-
 "csso@npm:^4.2.0":
   version: 4.2.0
   resolution: "csso@npm:4.2.0"
@@ -3454,10 +3445,10 @@ __metadata:
     parcel-plugin-static-files-copy: "npm:^2.6.0"
     postcss: "npm:^8.4.31"
     postcss-momentum-scrolling: "npm:^3.14.22"
-    postcss-nested: "npm:^6.0.1"
     postcss-sort-media-queries: "npm:^5.2.0"
     posthtml-beautify: "npm:^0.7.0"
     shx: "npm:^0.3.4"
+    throttle-debounce: "npm:^5.0.0"
   languageName: unknown
   linkType: soft
 
@@ -3574,27 +3565,6 @@ __metadata:
   peerDependencies:
     postcss: ^8.3.6
   checksum: 743df8d2ccbe85fc29ca434da32e678eb0ffbd677ad161f137c57e7ce89d2c82e595f26759013c25c077df9e136d38a411957e4c39aa707a819784490d106432
-  languageName: node
-  linkType: hard
-
-"postcss-nested@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "postcss-nested@npm:6.0.1"
-  dependencies:
-    postcss-selector-parser: "npm:^6.0.11"
-  peerDependencies:
-    postcss: ^8.2.14
-  checksum: 2a50aa36d5d103c2e471954830489f4c024deed94fa066169101db55171368d5f80b32446b584029e0471feee409293d0b6b1d8ede361f6675ba097e477b3cbd
-  languageName: node
-  linkType: hard
-
-"postcss-selector-parser@npm:^6.0.11":
-  version: 6.0.13
-  resolution: "postcss-selector-parser@npm:6.0.13"
-  dependencies:
-    cssesc: "npm:^3.0.0"
-    util-deprecate: "npm:^1.0.2"
-  checksum: 51f099b27f7c7198ea1826470ef0adfa58b3bd3f59b390fda123baa0134880a5fa9720137b6009c4c1373357b144f700b0edac73335d0067422063129371444e
   languageName: node
   linkType: hard
 
@@ -4227,6 +4197,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"throttle-debounce@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "throttle-debounce@npm:5.0.0"
+  checksum: 666d5b73bfa7340c5186b244416ce965cd276e4bc91a12453ff6eddcc62f02a19c6f532305601d90c809dd5acbd45dd6eea5eb43e0a879a0b3d66d0886a4d8d2
+  languageName: node
+  linkType: hard
+
 "timsort@npm:^0.3.0":
   version: 0.3.0
   resolution: "timsort@npm:0.3.0"
@@ -4303,7 +4280,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"util-deprecate@npm:^1.0.1, util-deprecate@npm:^1.0.2":
+"util-deprecate@npm:^1.0.1":
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
   checksum: 41a5bdd214df2f6c3ecf8622745e4a366c4adced864bc3c833739791aeeeb1838119af7daed4ba36428114b5c67dcda034a79c882e97e43c03e66a4dd7389942

@@ -1,5 +1,6 @@
 include page
 include header
+include footer
 
 doctype html
 html(lang='ru' style='visibility: hidden;')
@@ -9,3 +10,8 @@ html(lang='ru' style='visibility: hidden;')
 
   +page()
     block content
+
+
+    +footer()
+
+    block scripts

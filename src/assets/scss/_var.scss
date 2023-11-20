@@ -11,17 +11,19 @@ $screen_xxl: 1440px;
 $screen_wide: 1920px;
 
 $screens: (
-        xs: $screen_xs,
-        sm: $screen_sm,
-        md: $screen_md,
-        lg: $screen_lg,
-        xl: $screen_xl,
-        xxl: $screen_xxl,
-        wide: $screen_wide
+  xs: $screen_xs,
+  sm: $screen_sm,
+  md: $screen_md,
+  lg: $screen_lg,
+  xl: $screen_xl,
+  xxl: $screen_xxl,
+  wide: $screen_wide
 );
 
 $color_gray: #2d2d2d;
+$color_gray_light: #f1f3f2;
 $color_green: #43b088;
+$color_green_light: #52cc9f;
 $color_mint: #3e715e;
 $color_white: #fff;
 $placeholder_color: #ccc;

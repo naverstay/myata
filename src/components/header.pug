@@ -1,5 +1,9 @@
+include ./burger
+
 mixin header()
-  header.header-holder: .section: .header
+  header.header--holder: .section: .header
+    +burger()
+
     a.logo(href='/')
       img(src='./assets/svg/logo_s.svg')
 
@@ -8,7 +12,7 @@ mixin header()
         each item in navigation
           li: a(href='#')= item
 
-    .download
+    .download.flex.__end
       a.btn.btn--green.__s-48.btn--round(href='#')
         span Скачать
-        span приложение
+        span.hide__before-xl &nbsp;приложение

@@ -1,11 +1,8 @@
 {
-  "map": true,
   "plugins": {
     "postcss-momentum-scrolling": {},
     "postcss-sort-media-queries": {
       "sort": "mobile-first"
-    },
-    "autoprefixer": {},
-    "postcss-nested": {}
+    }
   }
 }

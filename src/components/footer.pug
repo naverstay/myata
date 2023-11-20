@@ -1,0 +1,18 @@
+include ./mixins
+
+mixin footer()
+  footer.section--holder.__white.__start: .section: .footer
+    a.logo.hide__before-xl(href='/')
+      img(src='./assets/svg/logo_s.svg')
+
+    .footer--download
+      p.hide__after-xl Скачивайте наше приложение
+      .footer--app
+        +app_btns()
+
+    nav.nav
+      ul.navigation
+        each item in navigation
+          li: a(href='#')= item
+
+    .footer--copy ©2023 ООО «Дейтинг Лаб». ВСЕ ПРАВА ЗАЩИЩЕНЫ

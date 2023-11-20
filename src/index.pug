@@ -1,25 +1,22 @@
 extends ./components/layout
+include ./components/mixins
 
 block head
 
 block content
   main.page
-    .section
+    section.section--holder.__white.__end: .section
       .promo
         .promo--left
           .promo--title МЯТА — онлайн знакомства в вашем мобильном
+          .promo--text С миллионами пользователей и продвинутыми фильтрами поиска, вы точно найдете того, кто подходит именно вам
           .promo--app
-            a.btn.btn--green.__s-54.btn--round(href='https://play.google.com/store/apps/details?id=mint.dating')
-              img(src='./assets/svg/googleplay.svg')
-            a.btn.btn--green.__s-54.btn--round(href='https://apps.rustore.ru/app/mint.dating')
-              img(src='./assets/svg/rustore.svg')
-            a.btn.btn--green.__s-54.btn--round(href='https://appgallery.cloud.huawei.com/ag/n/app/C104537637?locale=ru_RU&source=appshare&subsource=C104537637&shareTo=com.android.bluetooth&shareFrom=appmarket&shareIds=9757f3c7f6b34794a4d02f608c805ff1_com.android.bluetooth&callType=SHARE')
-              img(src='./assets/svg/appgallery.svg')
+            +app_btns()
 
         .promo--right
-          .promo--screen
+          //-.promo--screen
             img(src='./assets/image/phone-3.png' loading='lazy' srcset='./assets/image/phone-3@2x.png 2x, ./assets/image/phone-3.png 1x')
-          .promo--screen
+          //-.promo--screen
             img(src='./assets/image/phone-2.png' loading='lazy' srcset='./assets/image/phone-2@2x.png 2x, ./assets/image/phone-2.png 1x')
 
         .promo--stat
@@ -34,3 +31,6 @@ block content
           .promo--stat_item
             b 4.4
             p рейтинг
+
+block scripts
+  script(type="module", src="./assets/js/main.js")

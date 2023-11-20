@@ -75,10 +75,10 @@
     "parcel-plugin-static-files-copy": "^2.6.0",
     "postcss": "^8.4.31",
     "postcss-momentum-scrolling": "^3.14.22",
-    "postcss-nested": "^6.0.1",
     "postcss-sort-media-queries": "^5.2.0",
     "posthtml-beautify": "^0.7.0",
-    "shx": "^0.3.4"
+    "shx": "^0.3.4",
+    "throttle-debounce": "^5.0.0"
   },
   "packageManager": "yarn@4.0.2"
 }
