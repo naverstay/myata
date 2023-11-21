@@ -29,13 +29,13 @@
 
     @include respond-to-min($screen_md) {
       --btn-size: 32px;
-      --btn-gap: 19px;
+      --btn-gap: 23px;
       --btn-font-size: 14px;
     }
 
     @include respond-to-min($screen_lg) {
       --btn-size: 38px;
-      --btn-gap: 21px;
+      --btn-gap: 28px;
       --btn-font-size: 16px;
     }
 
@@ -50,10 +50,38 @@
       --btn-gap: 30px;
       --btn-font-size: 18px;
     }
-
   }
 
   &.__s-54 {
-    --btn-size: 54px;
+    --btn-size: 30px;
+    --btn-gap: 8px;
+    --btn-font-size: 10px;
+
+    @include respond-to-min($screen_sm) {
+      --btn-size: 34px;
+    }
+
+    @include respond-to-min($screen_md) {
+      --btn-size: 38px;
+      --btn-gap: 8px;
+      --btn-font-size: 14px;
+    }
+
+    @include respond-to-min($screen_lg) {
+      --btn-size: 40px;
+      --btn-gap: 7px;
+      --btn-font-size: 16px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      --btn-size: 44px;
+      --btn-gap: 10px;
+    }
+
+    @include respond-to-min($screen_wide) {
+      --btn-size: 54px;
+      --btn-gap: 12px;
+      --btn-font-size: 18px;
+    }
   }
 }

@@ -1,5 +1,12 @@
 @import "var";
 
+footer {
+  &.section--holder {
+    padding-bottom: 0;
+    margin-top: auto;
+  }
+}
+
 .footer {
   padding: 14px;
 

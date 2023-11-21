@@ -52,6 +52,16 @@ body {
   margin: 0 auto;
   max-width: 1248px;
 
+  //padding: 0 6px;
+  //
+  //@include respond-to-min($screen_xl) {
+  //  padding: 0 12px;
+  //}
+  //
+  //@include respond-to-min($screen_wide) {
+  //  padding: 0 16px;
+  //}
+
   &--holder {
     --section-radius: 30px;
     position: relative;
@@ -93,8 +103,41 @@ body {
       }
     }
 
+    &.__end-left {
+      .section {
+        &::after {
+          border-top-left-radius: var(--section-radius);
+        }
+
+        &::before {
+
+
+        }
+
+        &::after,
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 100%;
+          width: var(--section-radius);
+          height: var(--section-radius);
+        }
+      }
+    }
+
     &.__white {
       background: $color_white;
+
+      .section {
+        &::after {
+          background: $color_gray_light;
+        }
+
+        &::before {
+          background: $color_white;
+        }
+      }
 
       &::before {
         background: $color_gray_light;
@@ -103,6 +146,16 @@ body {
 
     &.__gray {
       background: $color_gray_light;
+
+      .section {
+        &::after {
+          background: $color_white;
+        }
+
+        &::before {
+          background: $color_gray_light;
+        }
+      }
 
       &::before {
         background: $color_white;

@@ -5,18 +5,18 @@ block head
 
 block content
   main.page
-    section.section--holder.__white.__end: .section
+    section.section--holder.__white.__end.__end-left: .section
       .promo
         .promo--left
-          .promo--title МЯТА — онлайн знакомства в вашем мобильном
-          .promo--text С миллионами пользователей и продвинутыми фильтрами поиска, вы точно найдете того, кто подходит именно вам
+          .promo--title МЯТА — онлайн знакомства в&nbsp;вашем мобильном
+          .promo--text С миллионами пользователей и продвинутыми фильтрами поиска, вы точно найдете того, кто&nbsp;подходит именно вам
           .promo--app
             +app_btns()
 
         .promo--right
-          //-.promo--screen
+          .promo--screen
             img(src='./assets/image/phone-3.png' loading='lazy' srcset='./assets/image/phone-3@2x.png 2x, ./assets/image/phone-3.png 1x')
-          //-.promo--screen
+          .promo--screen
             img(src='./assets/image/phone-2.png' loading='lazy' srcset='./assets/image/phone-2@2x.png 2x, ./assets/image/phone-2.png 1x')
 
         .promo--stat
