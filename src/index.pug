@@ -5,32 +5,35 @@ block head
 
 block content
   main.page
-    section.section--holder.__white.__end.__end-left: .section
-      .promo
-        .promo--left
-          .promo--title МЯТА — онлайн знакомства в&nbsp;вашем мобильном
-          .promo--text С миллионами пользователей и продвинутыми фильтрами поиска, вы точно найдете того, кто&nbsp;подходит именно вам
-          .promo--app
-            +app_btns()
+    section.section--holder.__white.__end
+      .section
+        .promo
+          .promo--left
+            .promo--title МЯТА — онлайн знакомства в&nbsp;вашем мобильном
+            .promo--text С миллионами пользователей и продвинутыми фильтрами поиска, вы точно найдете того, кто&nbsp;подходит именно вам
+            .promo--app
+              +app_btns()
 
-        .promo--right
-          .promo--screen
-            img(src='./assets/image/phone-3.png' loading='lazy' srcset='./assets/image/phone-3@2x.png 2x, ./assets/image/phone-3.png 1x')
-          .promo--screen
-            img(src='./assets/image/phone-2.png' loading='lazy' srcset='./assets/image/phone-2@2x.png 2x, ./assets/image/phone-2.png 1x')
+          .promo--right
+            .promo--screen
+              img(src='./assets/image/phone-3.png' loading='lazy' srcset='./assets/image/phone-3@2x.png 2x, ./assets/image/phone-3.png 1x')
+            .promo--screen
+              img(src='./assets/image/phone-2.png' loading='lazy' srcset='./assets/image/phone-2@2x.png 2x, ./assets/image/phone-2.png 1x')
 
-        .promo--stat
-          .promo--stat_item
-            b 5М+
-            p скачиваний
+          .promo--stat
+            .promo--stat_item
+              b 5М+
+              p скачиваний
 
-          .promo--stat_item
-            b 42.3К
-            p средний онлайн
+            .promo--stat_item
+              b 42.3К
+              p средний онлайн
 
-          .promo--stat_item
-            b 4.4
-            p рейтинг
+            .promo--stat_item
+              b 4.4
+              p рейтинг
+
+        .section--end.__left.hide__after-xl
 
 block scripts
   script(type="module", src="./assets/js/main.js")

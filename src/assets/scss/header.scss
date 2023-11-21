@@ -23,6 +23,10 @@
       background: $color_white;
       margin-bottom: 10px;
     }
+
+    @include respond-to-min($screen_xl) {
+      background: none;
+    }
   }
 
   &.__fixed {
@@ -45,7 +49,8 @@
   }
 
   @include respond-to-min($screen_xl) {
-    margin: 22px 43px;
+    margin: 15px auto 5px;
+    max-width: 970px;
   }
 
   @include respond-to-min($screen_wide) {
@@ -83,7 +88,7 @@
   }
 
   @include respond-to-min($screen_xl) {
-    width: 156px;
+    width: 158px;
   }
 
   @include respond-to-min($screen_wide) {
@@ -103,6 +108,10 @@
 
     @include respond-to-min($screen_lg) {
       padding-right: 10px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      padding-right: 6px;
     }
 
     @include respond-to-min($screen_wide) {
@@ -153,6 +162,7 @@
 
   @include respond-to-min($screen_xl) {
     --nav-font-size: 12px;
+    gap: 55px;
   }
 
   @include respond-to-min($screen_wide) {
@@ -233,5 +243,9 @@
 
   @include respond-to-min($screen_lg) {
     padding-right: 20px;
+  }
+
+  @include respond-to-min($screen_xl) {
+    padding-right: 5px;
   }
 }

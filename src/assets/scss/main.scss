@@ -50,7 +50,10 @@ body {
   position: relative;
   z-index: 1;
   margin: 0 auto;
-  max-width: 1248px;
+
+  @include respond-to-min($screen_xl) {
+    max-width: 1136px;
+  }
 
   //padding: 0 6px;
   //
@@ -61,6 +64,31 @@ body {
   //@include respond-to-min($screen_wide) {
   //  padding: 0 16px;
   //}
+
+  &--end {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: var(--section-radius);
+    height: var(--section-radius);
+
+    &.__left {
+
+      &::before {
+        border-top-left-radius: var(--section-radius);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: var(--section-radius);
+        height: var(--section-radius);
+      }
+
+    }
+  }
 
   &--holder {
     --section-radius: 30px;
@@ -83,6 +111,11 @@ body {
 
     @include respond-to-min($screen_xl) {
       --section-radius: 90px;
+      padding-bottom: 68px;
+    }
+
+    @include respond-to-min($screen_xxl) {
+      --section-radius: 90px;
       padding-bottom: 75px;
     }
 
@@ -103,39 +136,14 @@ body {
       }
     }
 
-    &.__end-left {
-      .section {
-        &::after {
-          border-top-left-radius: var(--section-radius);
-        }
-
-        &::before {
-
-
-        }
-
-        &::after,
-        &::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 100%;
-          width: var(--section-radius);
-          height: var(--section-radius);
-        }
-      }
-    }
-
     &.__white {
       background: $color_white;
 
-      .section {
-        &::after {
-          background: $color_gray_light;
-        }
+      .section--end {
+        background: $color_white;
 
         &::before {
-          background: $color_white;
+          background: $color_gray_light;
         }
       }
 
@@ -228,6 +236,9 @@ body {
   }
 }
 
+.relative {
+  position: relative;
+}
 
 @each $key, $value in $screens {
   //.show__before-#{$key},
