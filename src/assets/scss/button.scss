@@ -5,8 +5,8 @@
   align-items: center;
   justify-content: center;
   height: var(--btn-size);
-  padding: 0 30px;
-  font: 400 18px/22px $Roboto;
+  padding: 0 var(--btn-gap);
+  font: 400 var(--btn-font-size)/1.2222 $Roboto;
 
   &--round {
     border-radius: calc(var(--btn-size, 0) / 2);
@@ -23,7 +23,34 @@
   }
 
   &.__s-48 {
-    --btn-size: 48px;
+    --btn-size: 28px;
+    --btn-gap: 12px;
+    --btn-font-size: 10px;
+
+    @include respond-to-min($screen_md) {
+      --btn-size: 32px;
+      --btn-gap: 19px;
+      --btn-font-size: 14px;
+    }
+
+    @include respond-to-min($screen_lg) {
+      --btn-size: 38px;
+      --btn-gap: 21px;
+      --btn-font-size: 16px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      --btn-size: 40px;
+      --btn-gap: 17px;
+      --btn-font-size: 14px;
+    }
+
+    @include respond-to-min($screen_wide) {
+      --btn-size: 48px;
+      --btn-gap: 30px;
+      --btn-font-size: 18px;
+    }
+
   }
 
   &.__s-54 {

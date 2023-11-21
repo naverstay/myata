@@ -4,15 +4,16 @@ mixin header()
   header.header--holder: .section: .header
     +burger()
 
-    a.logo(href='/')
-      img(src='./assets/svg/logo_s.svg')
+    .flex.__start.__center-align
+      a.logo(href='/')
+        img(src='./assets/svg/logo_s.svg')
 
     nav.nav
       ul.navigation
         each item in navigation
           li: a(href='#')= item
 
-    .download.flex.__end
+    .download.flex.__end.__center-align
       a.btn.btn--green.__s-48.btn--round(href='#')
         span Скачать
         span.hide__before-xl &nbsp;приложение

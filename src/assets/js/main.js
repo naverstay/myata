@@ -10,9 +10,22 @@ const toggleMobileMenu = (e) => {
   return false;
 };
 
+const closeMobileMenu = (e) => {
+  e?.preventDefault();
+  openMobileMenu = false;
+  document.documentElement.classList.toggle("__open-mob-menu", openMobileMenu);
+  return false;
+};
+
 const initBurger = () => {
-  document.querySelectorAll(".js-open-menu").forEach((item) => {
+  document.querySelectorAll(".js-toggle-menu").forEach((item) => {
     item.addEventListener("click", toggleMobileMenu);
+  });
+};
+
+const initOverlay = () => {
+  document.querySelectorAll(".js-close-menu").forEach((item) => {
+    item.addEventListener("click", closeMobileMenu);
   });
 };
 
@@ -62,6 +75,7 @@ const appHeight = () => {
 document.addEventListener('DOMContentLoaded', function () {
   appHeight();
   initBurger();
+  initOverlay();
 });
 
 const debounceScrollUpCheck = debounce(20, (newScrollTop) => {

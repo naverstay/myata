@@ -16,6 +16,5 @@
   @include respond-to-min($screen_lg) {
     display: grid;
     grid-template-columns: auto 1fr auto;
-    margin: 22px 43px;
   }
 }

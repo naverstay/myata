@@ -111,6 +111,26 @@ body {
   }
 }
 
+.page {
+  &--overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    background: rgba(0, 0, 0, .6);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s;
+
+    .__open-mob-menu & {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+
 .flex {
   display: flex;
 
