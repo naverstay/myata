@@ -128,7 +128,7 @@ body {
 
     @include respond-to-min($screen_xxl) {
       --section-radius: 90px;
-      padding-bottom: 75px;
+      padding-bottom: 65px;
     }
 
     @include respond-to-min($screen_wide) {

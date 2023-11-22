@@ -92,14 +92,15 @@
     &_text {
 
       .slider--reg_controls {
-        bottom: 56px;
-        left: 78px;
+        bottom: 40px;
+        left: 50px;
 
         @include respond-to-min($screen_wide) {
           --slider-btn-size: 40px;
+          bottom: 56px;
+          left: 78px;
         }
       }
-
 
       h4 {
         font-size: 21px;
@@ -121,13 +122,18 @@
 
 
     &_photo {
+      --slider-gap: 225px;
+
+      @include respond-to-min($screen_wide) {
+        --slider-gap: 300px;
+      }
 
       &-inner {
-        margin: -300px;
+        margin: calc(-1 * var(--slider-gap));
       }
 
       .swiper {
-        padding: 300px 212px;
+        padding: var(--slider-gap) 212px;
         overflow: visible;
       }
 
@@ -159,11 +165,16 @@
 
     @include respond-to-min($screen_xl) {
       margin: 0 auto;
-      max-width: 1252px;
-      padding: 110px 0 65px;
+      max-width: 940px;
+      padding: 82px 0 50px;
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
+
+      @include respond-to-min($screen_wide) {
+        max-width: 1252px;
+        padding: 110px 0 65px;
+      }
 
       &_text,
       &_photo {
@@ -171,12 +182,12 @@
       }
 
       &_photo {
-        //width: 33%;
+        position: relative;
         margin: 0 auto;
-        width: 300px;
+        width: var(--slider-gap);
 
         .swiper {
-          padding: 300px 55px;
+          padding: var(--slider-gap) 55px;
           //margin-left: 10px;
           //overflow: visible;
         }
@@ -189,16 +200,17 @@
         margin: auto 0;
         border-radius: 0 15px 90px 0;
         background: $color_gray_light;
-        transform: translateY(12px);
+        transform: translateY(8px);
         overflow: hidden;
 
         .slide {
           background: $color_gray_light;
-          padding: 46px 60px;
+          padding: 46px 48px 84px;
         }
 
         @include respond-to-min($screen_wide) {
           border-radius: 0 20px 120px 0;
+          transform: translateY(12px);
 
           .swiper {
             //margin-right: -160px;

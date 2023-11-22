@@ -91,27 +91,21 @@ const initSliders = () => {
             res(swp);
           }
         },
-        modules: [Navigation, Keyboard, Pagination, Controller, Mousewheel]
+        modules: [Navigation]
       });
     }).then(s => {
       sliderRegText = s;
 
       new Promise((res, rej) => {
         new Swiper(regPhoto, {
+          modules: [EffectCoverflow, Controller, Mousewheel, Navigation, Keyboard, Autoplay, Pagination],
           effect: 'coverflow',
           //loop: true,
           centeredSlides: true,
-          slidesPerView: 2.3,
-          coverflowEffect: {
-            rotate: 0,
-            depth: 230,
-            stretch: 142,
-            slideShadows: false
-          },
           pagination: {
-            el: "#js-slider-reg-pagination",
+            el: regPagination,
             clickable: true,
-            type: 'bullets'
+            type: "bullets"
           },
           navigation: {
             nextEl: regText.querySelector(".swiper-button-next"),
@@ -124,9 +118,9 @@ const initSliders = () => {
           keyboard: {
             enabled: true
           },
-          autoplay: {
-            delay: AUTO_PLAY_DELAY
-          },
+          //autoplay: {
+          //  delay: AUTO_PLAY_DELAY
+          //},
           mousewheel: {
             thresholdDelta: 70
           },
@@ -135,7 +129,46 @@ const initSliders = () => {
               res(swp);
             }
           },
-          modules: [EffectCoverflow, Controller, Mousewheel, Navigation, Keyboard, Autoplay, Pagination]
+          slidesPerView: 2.3,
+          coverflowEffect: {
+            rotate: 0,
+            depth: 230,
+            stretch: 142,
+            slideShadows: false
+          },
+          breakpoints: {
+            320: {
+              spaceBetween: 0
+            },
+            360: {
+              spaceBetween: 0
+            },
+            768: {
+              spaceBetween: 0
+            },
+            1024: {
+              spaceBetween: 0
+            },
+            1208: {
+              spaceBetween: 0
+            },
+            1440: {
+              coverflowEffect: {
+                rotate: 0,
+                depth: 230,
+                stretch: 94,
+                slideShadows: false
+              },
+            },
+            1920: {
+              coverflowEffect: {
+                rotate: 0,
+                depth: 230,
+                stretch: 142,
+                slideShadows: false
+              },
+            }
+          }
         });
 
       }).then(s => {
