@@ -48,7 +48,7 @@
       right: 0;
       left: 0;
       z-index: 2;
-      margin-top: 30px;
+      margin-top: 37px;
 
       span {
         height: 4px;
@@ -87,6 +87,10 @@
           }
         }
       }
+
+      @include respond-to-min($screen_xxl) {
+        margin-top: 30px;
+      }
     }
 
     &_text {
@@ -122,7 +126,11 @@
 
 
     &_photo {
-      --slider-gap: 225px;
+      --slider-gap: 205px;
+
+      @include respond-to-min($screen_xxl) {
+        --slider-gap: 225px;
+      }
 
       @include respond-to-min($screen_wide) {
         --slider-gap: 300px;
@@ -165,11 +173,16 @@
 
     @include respond-to-min($screen_xl) {
       margin: 0 auto;
-      max-width: 940px;
-      padding: 82px 0 50px;
+      max-width: 890px;
+      padding: 107px 0 75px;
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
+
+      @include respond-to-min($screen_xxl) {
+        max-width: 940px;
+        padding: 82px 0 50px;
+      }
 
       @include respond-to-min($screen_wide) {
         max-width: 1252px;
@@ -196,7 +209,7 @@
       &_text {
         position: relative;
         z-index: 1;
-        width: 51%;
+        width: 54%;
         margin: auto 0;
         border-radius: 0 15px 90px 0;
         background: $color_gray_light;
@@ -206,6 +219,10 @@
         .slide {
           background: $color_gray_light;
           padding: 46px 48px 84px;
+        }
+
+        @include respond-to-min($screen_xxl) {
+          width: 51%;
         }
 
         @include respond-to-min($screen_wide) {

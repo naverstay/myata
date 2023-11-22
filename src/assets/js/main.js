@@ -149,24 +149,21 @@ const initSliders = () => {
             1024: {
               spaceBetween: 0
             },
-            1208: {
-              spaceBetween: 0
+            1280: {
+              coverflowEffect: {
+                depth: 230,
+                stretch: 84
+              }
             },
             1440: {
               coverflowEffect: {
-                rotate: 0,
-                depth: 230,
-                stretch: 94,
-                slideShadows: false
-              },
+                stretch: 94
+              }
             },
             1920: {
               coverflowEffect: {
-                rotate: 0,
-                depth: 230,
-                stretch: 142,
-                slideShadows: false
-              },
+                stretch: 142
+              }
             }
           }
         });
