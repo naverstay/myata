@@ -143,17 +143,6 @@ const initSliders = () => {
             slideShadows: false
           },
           breakpoints: {
-            320: {
-              spaceBetween: 0
-            },
-            360: {
-              spaceBetween: 0
-            },
-            768: {
-              coverflowEffect: {
-                stretch: 142,
-              },
-            },
             1024: {
               coverflowEffect: {
                 stretch: 60
