@@ -55,6 +55,14 @@ body {
     max-width: 1136px;
   }
 
+  @include respond-to-min($screen_xxl) {
+    max-width: 1204px;
+  }
+
+  @include respond-to-min($screen_wide) {
+    max-width: 1604px;
+  }
+
   //padding: 0 6px;
   //
   //@include respond-to-min($screen_xl) {
