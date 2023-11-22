@@ -324,4 +324,8 @@
     text-align: center;
     padding: 25px 5px;
   }
+
+  @include respond-to-max($screen_lg) {
+    padding: 24px 5px;
+  }
 }

@@ -36,7 +36,7 @@
     padding: 60px 30px;
     position: relative;
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 500px;
 
     &_controls {
       pointer-events: none;
@@ -112,6 +112,11 @@
           margin-bottom: 152px;
         }
 
+        @include respond-to-max($screen_lg) {
+          right: 65px;
+          left: 65px;
+        }
+
         @include respond-to-min($screen_xl) {
           bottom: 40px;
           left: 50px;
@@ -153,6 +158,10 @@
 
     &_photo {
       --slider-gap: 100px;
+
+      @include respond-to-min($screen_lg) {
+        --slider-gap: 100px;
+      }
 
       @include respond-to-min($screen_xl) {
         --slider-gap: 205px;
@@ -197,7 +206,8 @@
     }
 
     @include respond-to-min($screen_md) {
-
+      padding: 38px 30px 24px;
+      max-width: 560px;
     }
 
     @include respond-to-min($screen_lg) {

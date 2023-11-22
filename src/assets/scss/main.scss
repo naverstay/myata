@@ -117,6 +117,10 @@ body {
     }
 
     @include respond-to-min($screen_md) {
+      padding-bottom: 37px;
+    }
+
+    @include respond-to-min($screen_lg) {
       padding-bottom: 40px;
     }
 
