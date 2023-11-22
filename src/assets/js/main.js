@@ -1,6 +1,6 @@
 import {debounce} from "throttle-debounce";
 import Swiper from "swiper";
-import {Controller, Navigation, Keyboard, Mousewheel, Pagination, EffectCoverflow} from "swiper/modules";
+import {Controller, Navigation, Keyboard, Mousewheel, Pagination, Autoplay, EffectCoverflow} from "swiper/modules";
 
 let openMobileMenu = false;
 let prevScrollPos = 0;
@@ -70,81 +70,83 @@ const appHeight = () => {
 
 const initSliders = () => {
   let sliderRegPhoto, sliderRegText;
+  const AUTO_PLAY_DELAY = 3000;
+  const regPagination = document.getElementById('js-slider-reg-pagination');
   const regPhoto = document.getElementById('js-slider-reg-photo');
   const regText = document.getElementById('js-slider-reg-text');
 
-  sliderRegPhoto = new Swiper(regPhoto, {
-    effect: 'coverflow',
-    //loop: true,
-    centeredSlides: true,
-    slidesPerView: 2.3,
-    coverflowEffect: {
-      rotate: 0,
-      depth: 230,
-      stretch: 150,
+  if (regPhoto && regText) {
+    new Promise((res, rej) => {
+      new Swiper(regText, {
+        //loop: true,
+        centeredSlides: true,
+        allowTouchMove: false,
+        slidesPerView: 1,
+        navigation: {
+          nextEl: regText.querySelector(".swiper-button-next"),
+          prevEl: regText.querySelector(".swiper-button-prev")
+        },
+        on: {
+          init: (swp) => {
+            res(swp);
+          }
+        },
+        modules: [Navigation, Keyboard, Pagination, Controller, Mousewheel]
+      });
+    }).then(s => {
+      sliderRegText = s;
 
-      //depth: 230,
-      //stretch: 135,
-      slideShadows: false
-    },
-    pagination: {
-      el: regPhoto.querySelector(".swiper-pagination"),
-      clickable: true
-    },
-    navigation: {
-      nextEl: regPhoto.querySelector(".swiper-button-next"),
-      prevEl: regPhoto.querySelector(".swiper-button-prev")
-    },
-    controller: {
-      control: "#js-slider-reg-text"
-    },
-    keyboard: {
-      enabled: true
-    },
-    mousewheel: {
-      thresholdDelta: 70
-    },
-    on: {
+      new Promise((res, rej) => {
+        new Swiper(regPhoto, {
+          effect: 'coverflow',
+          //loop: true,
+          centeredSlides: true,
+          slidesPerView: 2.3,
+          coverflowEffect: {
+            rotate: 0,
+            depth: 230,
+            stretch: 142,
+            slideShadows: false
+          },
+          pagination: {
+            el: "#js-slider-reg-pagination",
+            clickable: true,
+            type: 'bullets'
+          },
+          navigation: {
+            nextEl: regText.querySelector(".swiper-button-next"),
+            prevEl: regText.querySelector(".swiper-button-prev")
+          },
+          controller: {
+            by: "container",
+            control: "#js-slider-reg-text"
+          },
+          keyboard: {
+            enabled: true
+          },
+          autoplay: {
+            delay: AUTO_PLAY_DELAY
+          },
+          mousewheel: {
+            thresholdDelta: 70
+          },
+          on: {
+            init: (swp) => {
+              res(swp);
+            }
+          },
+          modules: [EffectCoverflow, Controller, Mousewheel, Navigation, Keyboard, Autoplay, Pagination]
+        });
 
-      //slideChange: function () {
-      //  sliderRegText?.slideTo(sliderRegPhoto.activeIndex);
-      //}
-    },
-    modules: [EffectCoverflow, Mousewheel, Navigation, Keyboard, Pagination, Controller]
-  });
+      }).then(s => {
+        sliderRegPhoto = s;
 
-  sliderRegText = new Swiper(regText, {
-    //loop: true,
-    centeredSlides: true,
-    slidesPerView: 1,
-    controller: {
-      control: "#js-slider-reg-photo"
-    },
-    navigation: {
-      nextEl: regText.querySelector(".swiper-button-next"),
-      prevEl: regText.querySelector(".swiper-button-prev")
-    },
-    keyboard: {
-      enabled: true
-    },
-    mousewheel: {
-      thresholdDelta: 70
-    },
-    on: {
-      init: (swp) => {
-        swp.slideTo(1);
-      }
-      //slideChange: function () {
-      //  sliderRegText?.slideTo(sliderRegPhoto.activeIndex);
-      //}
-    },
-    modules: [Navigation, Keyboard, Pagination, Mousewheel, Controller]
-  });
+        regPagination.style.setProperty("--slider-delay", AUTO_PLAY_DELAY + `ms`);
 
-  //setTimeout(() => {
-  //  sliderRegPhoto.control = '#js-slider-reg-text';
-  //  sliderRegText.control = '#js-slider-reg-photo';
-  //}, 1000);
+        sliderRegPhoto.slideTo(1);
+      });
+    });
+  }
 };
 
 document.addEventListener('DOMContentLoaded', function () {
