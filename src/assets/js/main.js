@@ -1,4 +1,6 @@
 import {debounce} from "throttle-debounce";
+import Swiper from "swiper";
+import {Controller, Navigation, Keyboard, Mousewheel, Pagination, EffectCoverflow} from "swiper/modules";
 
 let openMobileMenu = false;
 let prevScrollPos = 0;
@@ -61,21 +63,95 @@ function getScrollTop() {
 
 const appHeight = () => {
   const doc = document.documentElement;
-  const sab =
-    parseInt(
-      getComputedStyle(document.documentElement).getPropertyValue("--sab")
-    ) || 0;
-  doc.style.setProperty(
-    "--app-height",
-    `${Math.max(300, window.innerHeight - 1 - sab)}px`
-  );
+  const sab = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--sab")) || 0;
+  doc.style.setProperty("--app-height", `${Math.max(300, window.innerHeight - 1 - sab)}px`);
   doc.style.setProperty("--app-scroll-size", getScrollbarWidth() + "px");
+};
+
+const initSliders = () => {
+  let sliderRegPhoto, sliderRegText;
+  const regPhoto = document.getElementById('js-slider-reg-photo');
+  const regText = document.getElementById('js-slider-reg-text');
+
+  sliderRegPhoto = new Swiper(regPhoto, {
+    effect: 'coverflow',
+    //loop: true,
+    centeredSlides: true,
+    slidesPerView: 2.3,
+    coverflowEffect: {
+      rotate: 0,
+      depth: 230,
+      stretch: 150,
+
+      //depth: 230,
+      //stretch: 135,
+      slideShadows: false
+    },
+    pagination: {
+      el: regPhoto.querySelector(".swiper-pagination"),
+      clickable: true
+    },
+    navigation: {
+      nextEl: regPhoto.querySelector(".swiper-button-next"),
+      prevEl: regPhoto.querySelector(".swiper-button-prev")
+    },
+    controller: {
+      control: "#js-slider-reg-text"
+    },
+    keyboard: {
+      enabled: true
+    },
+    mousewheel: {
+      thresholdDelta: 70
+    },
+    on: {
+
+      //slideChange: function () {
+      //  sliderRegText?.slideTo(sliderRegPhoto.activeIndex);
+      //}
+    },
+    modules: [EffectCoverflow, Mousewheel, Navigation, Keyboard, Pagination, Controller]
+  });
+
+  sliderRegText = new Swiper(regText, {
+    //loop: true,
+    centeredSlides: true,
+    slidesPerView: 1,
+    controller: {
+      control: "#js-slider-reg-photo"
+    },
+    navigation: {
+      nextEl: regText.querySelector(".swiper-button-next"),
+      prevEl: regText.querySelector(".swiper-button-prev")
+    },
+    keyboard: {
+      enabled: true
+    },
+    mousewheel: {
+      thresholdDelta: 70
+    },
+    on: {
+      init: (swp) => {
+        swp.slideTo(1);
+      }
+      //slideChange: function () {
+      //  sliderRegText?.slideTo(sliderRegPhoto.activeIndex);
+      //}
+    },
+    modules: [Navigation, Keyboard, Pagination, Mousewheel, Controller]
+  });
+
+  //setTimeout(() => {
+  //  sliderRegPhoto.control = '#js-slider-reg-text';
+  //  sliderRegText.control = '#js-slider-reg-photo';
+  //}, 1000);
 };
 
 document.addEventListener('DOMContentLoaded', function () {
   appHeight();
   initBurger();
   initOverlay();
+  initSliders();
 });
 
 const debounceScrollUpCheck = debounce(20, (newScrollTop) => {
@@ -94,6 +170,7 @@ const debounceScrollUpCheck = debounce(20, (newScrollTop) => {
 function checkWindowScroll() {
   const newScrollTop = getScrollTop();
   document.documentElement.classList.toggle("__scrolled", newScrollTop > 0);
+  document.documentElement.classList.toggle("__scrolled-screen", newScrollTop > window.innerHeight);
   debounceScrollUpCheck(newScrollTop);
 }
 

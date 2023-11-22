@@ -145,6 +145,7 @@
 
 .navigation {
   --nav-font-size: 10px;
+  pointer-events: all;
   min-height: 100%;
   align-items: center;
   justify-content: center;
@@ -189,7 +190,6 @@
 
   @include respond-to-max($screen_lg) {
     .header & {
-      pointer-events: all;
       transition: top .3s, transform .3s;
       transform: translateY(-100%);
       position: absolute;

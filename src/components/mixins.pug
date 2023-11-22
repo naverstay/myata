@@ -5,3 +5,14 @@ mixin app_btns()
     img(src='./assets/svg/appgallery.svg')
     a.btn.btn--green.__s-54.btn--round(href='https://apps.rustore.ru/app/mint.dating')
       img(src='./assets/svg/rustore.svg')
+
+mixin img_src(path, name, ext)
+  - let x1 = path + name + '.' + ext;
+
+  img(src=x1 loading='lazy' srcset=path + name + '@2x.' + ext + ' 2x, ' + x1 + ' 1x')
+
+mixin loop_while(counter)
+  - let i = 0;
+  while i < counter
+    - i++;
+    block

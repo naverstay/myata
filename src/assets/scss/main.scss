@@ -1,9 +1,13 @@
 @import "var";
 @import "extands";
+//@import "swiper.min";
+//@import "swiper-bundle.min";
+@import "swiper/swiper";
 @import "reset";
+@import "button";
 @import "header";
 @import "promo";
-@import "button";
+@import "slider";
 @import "footer";
 
 :root {
@@ -129,7 +133,7 @@ body {
 
     @include respond-to-min($screen_wide) {
       --section-radius: 120px;
-      padding-bottom: 100px;
+      padding-bottom: 90px;
     }
 
     &.__start {
@@ -246,6 +250,10 @@ body {
 
 .relative {
   position: relative;
+}
+
+.ovh {
+  overflow: hidden;
 }
 
 @each $key, $value in $screens {

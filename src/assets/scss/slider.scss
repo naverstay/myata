@@ -1,0 +1,129 @@
+@import "var";
+
+.slider {
+
+  &--button {
+    cursor: pointer;
+    display: block;
+    transition: background .3s;
+    width: var(--slider-btn-size);
+    height: var(--slider-btn-size);
+    background: $color_green;
+    border-radius: 100%;
+
+    &.swiper-button-disabled {
+      cursor: default;
+      background: darken($color_gray_light, 15);
+    }
+
+    img {
+      max-width: 70%;
+    }
+  }
+
+  &--reg {
+    --slider-btn-size: 30px;
+    padding: 60px 30px;
+
+    &_controls {
+      position: absolute;
+      bottom: 0;
+      z-index: 1;
+    }
+
+    &_clear {
+      clear: both;
+    }
+
+    &_text {
+
+      h4 {
+        font-size: 21px;
+        font-weight: 500;
+        line-height: 24px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+      }
+
+      @include respond-to-max($screen_xl) {
+        text-align: center;
+      }
+    }
+
+
+    &_photo {
+
+      &-inner {
+        margin: -300px;
+      }
+
+      .swiper {
+        padding: 300px 212px;
+        overflow: visible;
+      }
+    }
+
+    &_image {
+      width: 100%;
+
+      img {
+        max-width: 100%;
+        filter: drop-shadow(0px 9px 54px rgba(0, 0, 0, 0.16));
+      }
+    }
+
+    @include respond-to-min($screen_md) {
+
+
+    }
+
+    @include respond-to-min($screen_lg) {
+
+    }
+
+    @include respond-to-min($screen_xl) {
+      margin: 0 auto;
+      max-width: 1252px;
+      padding: 110px 160px;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+
+      &_text,
+      &_photo {
+        height: 100%;
+      }
+
+      &_photo {
+        width: 33%;
+        float: left;
+
+        .swiper {
+          padding: 300px 55px;
+          //overflow: visible;
+        }
+      }
+
+      &_text {
+        position: relative;
+        z-index: 1;
+        width: 52%;
+        margin: auto 0;
+        border-radius: 0 15px 90px 0;
+        overflow: hidden;
+
+        .slide {
+          background: $color_gray_light;
+          padding: 46px 60px;
+        }
+      }
+    }
+
+  }
+
+}
