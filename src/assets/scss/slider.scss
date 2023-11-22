@@ -124,6 +124,11 @@
           margin: 0 auto 142px;
         }
 
+        @include respond-to-max($screen_sm) {
+          right: 0;
+          left: 0;
+        }
+
         @include respond-to-min($screen_xl) {
           bottom: 40px;
           left: 50px;
@@ -169,9 +174,13 @@
 
     &_photo {
       --slider-gap: 100px;
-      max-width: 300px;
+      max-width: 304px;
       width: 100%;
       margin: 0 auto;
+
+      @include respond-to-min($screen_sm) {
+        max-width: 300px;
+      }
 
       @include respond-to-min($screen_md) {
         max-width: none;
