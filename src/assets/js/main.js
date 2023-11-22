@@ -139,7 +139,7 @@ const initSliders = () => {
           coverflowEffect: {
             rotate: 0,
             depth: 230,
-            stretch: 142,
+            stretch: 50,
             slideShadows: false
           },
           breakpoints: {
@@ -150,7 +150,10 @@ const initSliders = () => {
               spaceBetween: 0
             },
             768: {
-              spaceBetween: 0
+              coverflowEffect: {
+                depth: 230,
+                stretch: 142,
+              },
             },
             1024: {
               coverflowEffect: {
