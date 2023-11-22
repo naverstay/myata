@@ -12,6 +12,7 @@
 .slider {
 
   &--button {
+    pointer-events: all;
     cursor: pointer;
     display: block;
     transition: background .3s;
@@ -33,8 +34,12 @@
   &--reg {
     --slider-btn-size: 30px;
     padding: 60px 30px;
+    position: relative;
+    margin: 0 auto;
+    max-width: 600px;
 
     &_controls {
+      pointer-events: none;
       position: absolute;
       z-index: 1;
       gap: calc(var(--slider-btn-size) / 2);
@@ -48,7 +53,7 @@
       right: 0;
       left: 0;
       z-index: 2;
-      margin-top: 37px;
+      margin-top: -4px;
 
       span {
         height: 4px;
@@ -88,16 +93,29 @@
         }
       }
 
+      @include respond-to-min($screen_xl) {
+        margin-top: 37px;
+      }
+
       @include respond-to-min($screen_xxl) {
         margin-top: 30px;
       }
     }
 
     &_text {
-
       .slider--reg_controls {
-        bottom: 40px;
-        left: 50px;
+
+        @include respond-to-max($screen_xl) {
+          bottom: 100%;
+          right: 55px;
+          left: 55px;
+          margin-bottom: 152px;
+        }
+
+        @include respond-to-min($screen_xl) {
+          bottom: 40px;
+          left: 50px;
+        }
 
         @include respond-to-min($screen_wide) {
           --slider-btn-size: 40px;
@@ -107,26 +125,38 @@
       }
 
       h4 {
-        font-size: 21px;
+        font-size: 18px;
         font-weight: 500;
-        line-height: 24px;
-        margin-bottom: 10px;
+        line-height: 22px;
+        margin-bottom: 8px;
       }
 
       p {
         font-size: 14px;
         font-weight: 400;
-        line-height: 20px;
+        line-height: 18px;
       }
 
       @include respond-to-max($screen_xl) {
         text-align: center;
+        margin-top: 20px;
+
+        .swiper {
+          overflow: visible;
+
+          .slide {
+            padding: 0 10px;
+          }
+        }
       }
     }
 
-
     &_photo {
-      --slider-gap: 205px;
+      --slider-gap: 100px;
+
+      @include respond-to-min($screen_xl) {
+        --slider-gap: 205px;
+      }
 
       @include respond-to-min($screen_xxl) {
         --slider-gap: 225px;
@@ -141,8 +171,12 @@
       }
 
       .swiper {
-        padding: var(--slider-gap) 212px;
+        padding: var(--slider-gap) 182px;
         overflow: visible;
+
+        @include respond-to-min($screen_xl) {
+          padding: var(--slider-gap) 212px;
+        }
       }
 
       .slide {
@@ -164,11 +198,11 @@
 
     @include respond-to-min($screen_md) {
 
-
     }
 
     @include respond-to-min($screen_lg) {
-
+      max-width: 500px;
+      padding: 35px 0 25px;
     }
 
     @include respond-to-min($screen_xl) {
@@ -201,24 +235,35 @@
 
         .swiper {
           padding: var(--slider-gap) 55px;
-          //margin-left: 10px;
-          //overflow: visible;
         }
       }
 
       &_text {
         position: relative;
         z-index: 1;
-        width: 54%;
         margin: auto 0;
-        border-radius: 0 15px 90px 0;
-        background: $color_gray_light;
-        transform: translateY(8px);
         overflow: hidden;
 
-        .slide {
+        @include respond-to-min($screen_xl) {
+          width: 54%;
           background: $color_gray_light;
-          padding: 46px 48px 84px;
+          transform: translateY(8px);
+          border-radius: 0 15px 90px 0;
+
+          .slide {
+            background: $color_gray_light;
+            padding: 46px 48px 84px;
+          }
+
+          h4 {
+            font-size: 21px;
+            line-height: 24px;
+            margin-bottom: 10px;
+          }
+
+          p {
+            line-height: 20px;
+          }
         }
 
         @include respond-to-min($screen_xxl) {
@@ -229,13 +274,8 @@
           border-radius: 0 20px 120px 0;
           transform: translateY(12px);
 
-          .swiper {
-            //margin-right: -160px;
-          }
-
           .slide {
             padding: 62px 78px 117px;
-            border-radius: 0 20px 120px 0;
           }
 
           h4 {

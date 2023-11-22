@@ -16,7 +16,6 @@
   --fancybox-bg: rgba(0, 0, 0, 0.8);
   --app-height: 100vh;
   --app-scroll-size: 0;
-  --menu-width: 380px;
   --sat: env(safe-area-inset-top);
   --sar: env(safe-area-inset-right);
   --sab: env(safe-area-inset-bottom);
@@ -118,7 +117,7 @@ body {
     }
 
     @include respond-to-min($screen_md) {
-      padding-bottom: 50px;
+      padding-bottom: 40px;
     }
 
     @include respond-to-min($screen_xl) {
@@ -254,6 +253,10 @@ body {
 
 .ovh {
   overflow: hidden;
+}
+
+.hide {
+  display: none !important;
 }
 
 @each $key, $value in $screens {

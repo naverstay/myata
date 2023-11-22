@@ -1,7 +1,7 @@
 include ./mixins
 
 mixin reg_sliders(props = {})
-  .slider--reg.relative
+  .slider--reg
     .slider--reg_photo
       .slider--reg_photo-inner
         #js-slider-reg-photo.swiper
@@ -11,15 +11,9 @@ mixin reg_sliders(props = {})
                 .slider--reg_image
                   +img_src('./assets/image/slides/', 'phone-' + img, 'png')
 
-          .slider--reg_controls.flex.__between.__center.hide__after-xl
-            .swiper-button-prev.slider--button.__prev.flex.__center.__center-align
-              img(src='./assets/svg/arrow_l.svg')
-            .swiper-button-next.slider--button.__next.flex.__center.__center-align
-              img(src='./assets/svg/arrow_r.svg')
-
       #js-slider-reg-pagination.swiper-pagination.slider--reg_pagination.flex.__center
 
-    .slider--reg_text
+    .slider--reg_text.relative
       #js-slider-reg-text.swiper
         .swiper-wrapper
           each img, ind in ['left', 'center', 'right']
@@ -27,8 +21,8 @@ mixin reg_sliders(props = {})
               h4 Быстрая и бесплатная регистрация
               p Регистрация у нас — это мгновенное путешествие в&nbsp;мир знакомств. Забудьте о долгих и сложных формах! С нами регистрация занимает всего несколько секунд, и&nbsp;она абсолютно бесплатна.
 
-        .slider--reg_controls.flex.__between.__center.hide__before-xl
-          .swiper-button-prev.slider--button.__prev.flex.__center.__center-align
-            img(src='./assets/svg/arrow_l.svg')
-          .swiper-button-next.slider--button.__next.flex.__center.__center-align
-            img(src='./assets/svg/arrow_r.svg')
+      .slider--reg_controls.flex.__between
+        #js-slider-reg-prev.swiper-button-prev.slider--button.__prev.flex.__center.__center-align
+          img(src='./assets/svg/arrow_l.svg')
+        #js-slider-reg-next.swiper-button-next.slider--button.__next.flex.__center.__center-align
+          img(src='./assets/svg/arrow_r.svg')

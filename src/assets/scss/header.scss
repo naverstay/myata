@@ -18,6 +18,13 @@
     position: relative;
     z-index: 5;
 
+    .__scroll-screen & {
+      position: sticky;
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+
     @include respond-to-min($screen_lg) {
       border-radius: 0 0 16px 16px;
       background: $color_white;

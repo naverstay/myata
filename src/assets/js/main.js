@@ -82,10 +82,16 @@ const initSliders = () => {
         centeredSlides: true,
         allowTouchMove: false,
         slidesPerView: 1,
+        spaceBetween: 0,
         navigation: {
-          nextEl: regText.querySelector(".swiper-button-next"),
-          prevEl: regText.querySelector(".swiper-button-prev")
+          nextEl: "#js-slider-reg-next",
+          prevEl: "#js-slider-reg-prev"
         },
+        //breakpoints: {
+        //  1280: {
+        //    spaceBetween: 0
+        //  }
+        //},
         on: {
           init: (swp) => {
             res(swp);
@@ -108,8 +114,8 @@ const initSliders = () => {
             type: "bullets"
           },
           navigation: {
-            nextEl: regText.querySelector(".swiper-button-next"),
-            prevEl: regText.querySelector(".swiper-button-prev")
+            nextEl: "#js-slider-reg-next",
+            prevEl: "#js-slider-reg-prev"
           },
           controller: {
             by: "container",
@@ -147,11 +153,13 @@ const initSliders = () => {
               spaceBetween: 0
             },
             1024: {
-              spaceBetween: 0
+              coverflowEffect: {
+                depth: 230,
+                stretch: 60
+              }
             },
             1280: {
               coverflowEffect: {
-                depth: 230,
                 stretch: 84
               }
             },
@@ -187,14 +195,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 const debounceScrollUpCheck = debounce(20, (newScrollTop) => {
-  document.documentElement.classList.toggle(
-    "__scroll-hide",
-    newScrollTop > 100
-  );
-  document.documentElement.classList.toggle(
-    "__scroll-up",
-    newScrollTop === 0 ? false : prevScrollPos > newScrollTop
-  );
+  document.documentElement.classList.toggle("__scroll-hide", newScrollTop > 100);
+  document.documentElement.classList.toggle("__scroll-up", newScrollTop === 0 ? false : prevScrollPos > newScrollTop);
+  document.documentElement.classList.toggle("__scroll-screen", newScrollTop > window.innerHeight);
   prevScrollPos = newScrollTop;
 });
 
@@ -202,7 +205,6 @@ const debounceScrollUpCheck = debounce(20, (newScrollTop) => {
 function checkWindowScroll() {
   const newScrollTop = getScrollTop();
   document.documentElement.classList.toggle("__scrolled", newScrollTop > 0);
-  document.documentElement.classList.toggle("__scrolled-screen", newScrollTop > window.innerHeight);
   debounceScrollUpCheck(newScrollTop);
 }
 
