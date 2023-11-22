@@ -35,15 +35,20 @@ head
   script.
     const fontLink = document.getElementById('font-link');
 
-    fontLink
-      .addEventListener('load', function () {
-        setTimeout(function () {
-          document.documentElement.style.visibility = 'visible';
-        }, 100);
-      })
-      .addEventListener('error', function () {
-        setTimeout(function () {
-          document.documentElement.classList.add('__use-local-font');
-          document.documentElement.style.visibility = 'visible';
-        }, 100);
-      });
+    let fallbackTimeout = setTimeout(() => {
+      document.documentElement.classList.add('__use-local-font');
+      document.documentElement.style.visibility = 'visible';
+    }, 5000);
+
+    try {
+      fontLink
+        .addEventListener('load', function (e) {
+          clearTimeout(fallbackTimeout);
+
+          setTimeout(function () {
+            document.documentElement.style.visibility = 'visible';
+          }, 100);
+        })
+    } catch (e) {
+      console.log('fontLink error', e);
+    }
