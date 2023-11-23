@@ -97,7 +97,7 @@
       }
 
       @include respond-to-min($screen_xl) {
-        margin-top: 37px;
+        margin-top: 45px;
       }
 
       @include respond-to-min($screen_xxl) {
@@ -267,7 +267,7 @@
     @include respond-to-min($screen_xl) {
       margin: 0 auto;
       max-width: 890px;
-      padding: 107px 0 75px;
+      padding: 107px 0 85px;
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;

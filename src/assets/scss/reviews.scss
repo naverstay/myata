@@ -35,7 +35,7 @@
     @include respond-to-min($screen_xl) {
       font-size: 36px;
       line-height: 45px;
-      margin-bottom: 36px;
+      margin-bottom: 48px;
     }
 
     @include respond-to-min($screen_xxl) {
@@ -45,9 +45,8 @@
     @include respond-to-min($screen_wide) {
       font-size: 48px;
       line-height: 60px;
-      margin-bottom: 54px;
+      margin-bottom: 64px;
     }
-
   }
 
   &--slider {
@@ -67,12 +66,11 @@
     }
 
     @include respond-to-min($screen_xl) {
-      padding: 11px;
-      max-width: 522px;
+      max-width: 500px;
     }
 
     @include respond-to-min($screen_wide) {
-      max-width: 690px;
+      max-width: 668px;
     }
 
     .swiper {
@@ -224,12 +222,15 @@
 
       @include respond-to-min($screen_xl) {
         --slider-btn-size: 46px;
-        margin: calc(-0.5 * var(--slider-btn-size)) calc(-0.8 * var(--slider-btn-size));
+        margin: calc(-0.5 * var(--slider-btn-size)) calc(-1 * var(--slider-btn-size));
+      }
+
+      @include respond-to-min($screen_xxl) {
+
       }
 
       @include respond-to-min($screen_wide) {
         --slider-btn-size: 60px;
-        margin: calc(-0.5 * var(--slider-btn-size)) calc(-0.85 * var(--slider-btn-size));
       }
     }
 
@@ -263,7 +264,7 @@
     }
 
     @include respond-to-min($screen_xl) {
-      margin-top: 24px;
+      margin-top: 34px;
       margin-bottom: 10px;
     }
 
@@ -272,7 +273,7 @@
     }
 
     @include respond-to-min($screen_wide) {
-      margin-top: 34px;
+      margin-top: 46px;
     }
   }
 }
