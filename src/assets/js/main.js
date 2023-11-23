@@ -4,6 +4,13 @@ let prevScrollPos = 0;
 const PROD = false;
 const AUTO_PLAY_DELAY = 3000;
 
+const goTo = (top) => {
+  window.scrollTo({
+    top,
+    behavior: "smooth"
+  });
+};
+
 const toggleMobileMenu = (e) => {
   e?.preventDefault();
   openMobileMenu = !openMobileMenu;
@@ -35,7 +42,7 @@ const initPopup = () => {
   document.querySelectorAll(".js-popup-app").forEach((item) => {
     item.addEventListener("click", (e) => {
       e.preventDefault();
-      const popup = document.getElementById(e.target.getAttribute('data-popup'));
+      const popup = document.getElementById(item.dataset.popup);
 
       if (popup) {
         popup.style.display = 'block';
@@ -56,6 +63,22 @@ const initBurger = () => {
 const initOverlay = () => {
   document.querySelectorAll(".js-close-menu").forEach((item) => {
     item.addEventListener("click", closeMobileMenu);
+  });
+};
+
+const initGoto = () => {
+  document.querySelectorAll(".js-goto").forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = document.getElementById(item?.getAttribute('href')?.replace('#', ''));
+
+      if (target) {
+        closeMobileMenu();
+        goTo(target.offsetTop);
+      }
+
+      return false;
+    });
   });
 };
 
@@ -242,6 +265,7 @@ const initReviews = () => {
 document.addEventListener('DOMContentLoaded', function () {
   appHeight();
   initBurger();
+  initGoto();
   initOverlay();
   initSliders();
   initReviews();
@@ -249,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 const scrollUpCheck = (newScrollTop) => {
-  document.documentElement.classList.toggle("__scroll-hide", newScrollTop > 120);
+  document.documentElement.classList.toggle("__scroll-hide", newScrollTop > 150);
   document.documentElement.classList.toggle("__scroll-up", newScrollTop === 0 ? false : prevScrollPos > newScrollTop);
   document.documentElement.classList.toggle("__scroll-screen", newScrollTop > window.innerHeight);
   prevScrollPos = newScrollTop;

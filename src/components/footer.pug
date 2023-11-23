@@ -2,7 +2,7 @@ include ./mixins
 
 mixin footer()
   footer.section--holder.__white.__start: .section: .footer
-    a.logo.hide__before-xl(href='/')
+    a.logo.hide__before-xl.js-goto(href='#section-0')
       img(alt='img' src='./assets/svg/logo_s.svg' width=203 heigth=71)
 
     .footer--download
@@ -12,7 +12,7 @@ mixin footer()
 
     nav.nav
       ul.navigation
-        each item in navigation
-          li: a(href='#')= item
+        each item, ind in navigation
+          li: a.js-goto(href='#section-' + (ind + 1))= item
 
     .footer--copy ©2023 ООО «Дейтинг Лаб». ВСЕ ПРАВА ЗАЩИЩЕНЫ

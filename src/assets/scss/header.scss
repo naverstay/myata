@@ -29,7 +29,7 @@
         top: 0;
         right: 0;
         left: 0;
-        opacity: 0;
+        visibility: hidden;
 
         .header {
           transition: padding .3s, margin .3s, transform .3s, background .3s;
@@ -38,7 +38,7 @@
       }
 
       .__scroll-screen & {
-        opacity: 1;
+        visibility: visible;
 
         .header {
           transform: translateY(0);
@@ -48,8 +48,8 @@
           box-shadow: 0 1px 4px rgba(45, 45, 45, .25);
 
           @include respond-to-min($screen_wide) {
-            padding-top: 16px;
-            padding-bottom: 16px;
+            padding-top: 14px;
+            padding-bottom: 14px;
           }
         }
       }

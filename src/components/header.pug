@@ -5,13 +5,13 @@ mixin header()
     +burger()
 
     .flex.__start.__center-align
-      a.logo(href='/')
+      a.logo.js-goto(href='#section-0')
         img(alt='img' src='./assets/svg/logo_s.svg' width=203 heigth=71)
 
     nav.nav
       ul.navigation
-        each item in navigation
-          li: a(href='#')= item
+        each item, ind in navigation
+          li: a.js-goto(href='#section-' + (ind + 1))= item
 
     .download.flex.__end.__center-align
       a.btn.btn--green.__s-48.btn--round.hide__after-xl(href='#')
