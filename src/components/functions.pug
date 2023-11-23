@@ -1,0 +1,32 @@
+include ./mixins
+
+mixin functions(props = {})
+  .functions
+    .functions--title Много полезных функций
+
+    .functions--slider.relative
+      #js-slider-functions.swiper
+        .swiper-wrapper
+          each name, ind in ['Александр', 'Светлана Р.', 'Сеня', 'Артем Р.', 'Johnny']
+            .swiper-slide.slide
+              .functions--slider_item
+                .functions--slider_caption.flex.__between.__center-align
+                  h4= name
+                  span.flex.__center-align.functions--slider_rating
+                    img(alt='img' src='./assets/svg/star.svg' width=23 heigth=24)
+                    span 5
+                .functions--slider_text
+                  p Приложение по сути неплохое: визуал симпатичный, довольно удобное в&nbsp;использовании, весит немного, не&nbsp;тормозит. Регистрация быстрая и простая, достаточно номера телефона. Мне пока не удалось довольно удобное в&nbsp;использовании, весит немного, не&nbsp;тормозит. Регистрация быстрая и простая, достаточно номера телефона. Мне пока не удалось
+
+                .flex.__end.functions--slider_more
+                  a.link--green(href='#') Читать полностью
+
+      .functions--slider_controls.flex.__between
+        #js-slider-functions-prev.btn--green.swiper-button-prev.slider--button.__prev.flex.__center.__center-align
+          img(alt='img' src='./assets/svg/arrow_l.svg' width=42 heigth=42)
+        #js-slider-functions-next.btn--green.swiper-button-next.slider--button.__next.flex.__center.__center-align
+          img(alt='img' src='./assets/svg/arrow_r.svg' width=42 heigth=42)
+
+    .functions--download.flex.__center.__center-align
+      a.btn.btn--green.__s-64.btn--round(href='#')
+        span Скачать приложение

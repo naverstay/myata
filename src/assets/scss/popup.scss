@@ -50,7 +50,12 @@
   }
 
   &--app {
+    --app-image-gap: 5px;
     gap: 17px;
+
+    @include respond-to-min($screen_xl) {
+      --app-image-gap: 6px;
+    }
 
     .btn img {
       width: auto;

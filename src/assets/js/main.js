@@ -108,6 +108,7 @@ const initSliders = () => {
         //loop: true,
         centeredSlides: true,
         allowTouchMove: false,
+        speed: 500,
         slidesPerView: 1,
         spaceBetween: 0,
         navigation: {
@@ -127,6 +128,7 @@ const initSliders = () => {
         new Swiper(regPhoto, {
           //loop: true,
           ...useAutoplay,
+          speed: 500,
           effect: 'coverflow',
           centeredSlides: true,
           pagination: {
@@ -211,6 +213,7 @@ const initReviews = () => {
     new Promise((res, rej) => {
       new Swiper(reviewsBlock, {
         ...useAutoplay,
+        speed: 600,
         centeredSlides: true,
         navigation: {
           nextEl: "#js-slider-reviews-next",
@@ -246,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 const scrollUpCheck = (newScrollTop) => {
-  document.documentElement.classList.toggle("__scroll-hide", newScrollTop > 100);
+  document.documentElement.classList.toggle("__scroll-hide", newScrollTop > 120);
   document.documentElement.classList.toggle("__scroll-up", newScrollTop === 0 ? false : prevScrollPos > newScrollTop);
   document.documentElement.classList.toggle("__scroll-screen", newScrollTop > window.innerHeight);
   prevScrollPos = newScrollTop;

@@ -1,0 +1,24 @@
+include ./mixins
+
+mixin datings(props = {})
+  .datings
+    .datings--title В Мяте знакомятся уже 5&nbsp;миллионов человек — присоединяйтесь!
+    .datings--app
+      +app_btns()
+
+    .datings--slider.relative
+      #js-slider-datings.swiper
+        .swiper-wrapper
+          each name, ind in ['Александр', 'Светлана Р.', 'Сеня', 'Артем Р.', 'Johnny']
+            .swiper-slide.slide
+              .datings--slider_item
+                .datings--slider_caption.flex.__between.__center-align
+                  h4= name
+                  span.flex.__center-align.datings--slider_rating
+                    img(alt='img' src='./assets/svg/star.svg' width=23 heigth=24)
+                    span 5
+                .datings--slider_text
+                  p Приложение по сути неплохое: визуал симпатичный, довольно удобное в&nbsp;использовании, весит немного, не&nbsp;тормозит. Регистрация быстрая и простая, достаточно номера телефона. Мне пока не удалось довольно удобное в&nbsp;использовании, весит немного, не&nbsp;тормозит. Регистрация быстрая и простая, достаточно номера телефона. Мне пока не удалось
+
+                .flex.__end.datings--slider_more
+                  a.link--green(href='#') Читать полностью
