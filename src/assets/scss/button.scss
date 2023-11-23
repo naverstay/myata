@@ -120,7 +120,7 @@
 
     @include respond-to-min($screen_wide) {
       --btn-size: 64px;
-      --btn-gap: 30px;
+      --btn-gap: 40px;
       --btn-font-size: 24px;
     }
   }
