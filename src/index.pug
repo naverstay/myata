@@ -1,6 +1,7 @@
 extends ./components/layout
 include ./components/promo
 include ./components/reg_sliders
+include ./components/reviews
 include ./components/mixins
 
 block head
@@ -18,6 +19,10 @@ block content
     section.section--holder.__gray.__end.__start.ovh
       .section
         +reg_sliders()
+
+    section.section--holder.__white.__end.__start.ovh
+      .section
+        +reviews()
 
 
 block scripts

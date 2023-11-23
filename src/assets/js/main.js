@@ -1,6 +1,9 @@
 let openMobileMenu = false;
 let prevScrollPos = 0;
 
+const PROD = false;
+const AUTO_PLAY_DELAY = 3000;
+
 const toggleMobileMenu = (e) => {
   e?.preventDefault();
   openMobileMenu = !openMobileMenu;
@@ -57,10 +60,18 @@ const appHeight = () => {
 
 const initSliders = () => {
   let sliderRegPhoto, sliderRegText;
-  const AUTO_PLAY_DELAY = 3000;
+  let useAutoplay = {};
   const regPagination = document.getElementById('js-slider-reg-pagination');
   const regPhoto = document.getElementById('js-slider-reg-photo');
   const regText = document.getElementById('js-slider-reg-text');
+
+  if (PROD) {
+    useAutoplay = {
+      autoplay: {
+        delay: AUTO_PLAY_DELAY
+      }
+    };
+  }
 
   if (regPhoto && regText) {
     new Promise((res, rej) => {
@@ -79,16 +90,15 @@ const initSliders = () => {
             res(swp);
           }
         }
-        //modules: [Navigation]
       });
     }).then(s => {
       sliderRegText = s;
 
       new Promise((res, rej) => {
         new Swiper(regPhoto, {
-          //modules: [EffectCoverflow, Controller, Mousewheel, Navigation, Keyboard, Autoplay, Pagination],
-          effect: 'coverflow',
           //loop: true,
+          ...useAutoplay,
+          effect: 'coverflow',
           centeredSlides: true,
           pagination: {
             el: regPagination,
@@ -106,9 +116,6 @@ const initSliders = () => {
           keyboard: {
             enabled: true
           },
-          //autoplay: {
-          //  delay: AUTO_PLAY_DELAY
-          //},
           mousewheel: {
             thresholdDelta: 70
           },
@@ -158,11 +165,54 @@ const initSliders = () => {
   }
 };
 
+const initReviews = () => {
+  let sliderReviews;
+  let useAutoplay = {};
+  const reviewsBlock = document.getElementById('js-slider-reviews');
+
+  if (PROD) {
+    useAutoplay = {
+      autoplay: {
+        delay: AUTO_PLAY_DELAY
+      }
+    };
+  }
+
+  if (reviewsBlock) {
+    new Promise((res, rej) => {
+      new Swiper(reviewsBlock, {
+        ...useAutoplay,
+        centeredSlides: true,
+        navigation: {
+          nextEl: "#js-slider-reviews-next",
+          prevEl: "#js-slider-reviews-prev"
+        },
+        keyboard: {
+          enabled: true
+        },
+        mousewheel: {
+          thresholdDelta: 70
+        },
+        on: {
+          init: (swp) => {
+            res(swp);
+          }
+        },
+        slidesPerView: 1,
+      });
+    }).then(s => {
+      sliderReviews = s;
+      sliderReviews.slideTo(1);
+    });
+  }
+};
+
 document.addEventListener('DOMContentLoaded', function () {
   appHeight();
   initBurger();
   initOverlay();
   initSliders();
+  initReviews();
 });
 
 const scrollUpCheck = (newScrollTop) => {

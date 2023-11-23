@@ -1,0 +1,32 @@
+include ./mixins
+
+mixin reviews(props = {})
+  .reviews
+    .reviews--title Отзывы пользователей в&nbsp;PlayMarket
+
+    .reviews--slider.relative
+      #js-slider-reviews.swiper
+        .swiper-wrapper
+          each name, ind in ['Александр', 'Светлана Р.', 'Сеня', 'Артем Р.', 'Johnny']
+            .swiper-slide.slide
+              .reviews--slider_item
+                .reviews--slider_caption.flex.__between.__center-align
+                  h4= name
+                  span.flex.__center-align.reviews--slider_rating
+                    img(alt='img' src='./assets/svg/star.svg' width=23 heigth=24)
+                    span 5
+                .reviews--slider_text
+                  p Приложение по сути неплохое: визуал симпатичный, довольно удобное в&nbsp;использовании, весит немного, не&nbsp;тормозит. Регистрация быстрая и простая, достаточно номера телефона. Мне пока не удалось довольно удобное в&nbsp;использовании, весит немного, не&nbsp;тормозит. Регистрация быстрая и простая, достаточно номера телефона. Мне пока не удалось
+
+                .flex.__end.reviews--slider_more
+                  a.link--green(href='#') Читать полностью
+
+      .reviews--slider_controls.flex.__between
+        #js-slider-reviews-prev.swiper-button-prev.slider--button.__prev.flex.__center.__center-align
+          img(alt='img' src='./assets/svg/arrow_l.svg' width=42 heigth=42)
+        #js-slider-reviews-next.swiper-button-next.slider--button.__next.flex.__center.__center-align
+          img(alt='img' src='./assets/svg/arrow_r.svg' width=42 heigth=42)
+
+    .reviews--download.flex.__center.__center-align
+      a.btn.btn--green.__s-64.btn--round(href='#')
+        span Скачать приложение

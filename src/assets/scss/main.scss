@@ -6,6 +6,7 @@
 @import "header";
 @import "promo";
 @import "slider";
+@import "reviews";
 @import "footer";
 
 :root {
@@ -202,6 +203,15 @@ body {
       opacity: 1;
       pointer-events: all;
     }
+  }
+}
+
+.link--green {
+  color: $color_green;
+  transition: color .3s;
+
+  &:hover {
+    color: $color_green_light;
   }
 }
 
