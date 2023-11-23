@@ -908,7 +908,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@parcel/transformer-babel@npm:2.10.3":
+"@parcel/transformer-babel@npm:2.10.3, @parcel/transformer-babel@npm:^2.10.3":
   version: 2.10.3
   resolution: "@parcel/transformer-babel@npm:2.10.3"
   dependencies:
@@ -970,7 +970,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@parcel/transformer-js@npm:2.10.3":
+"@parcel/transformer-js@npm:2.10.3, @parcel/transformer-js@npm:^2.10.3":
   version: 2.10.3
   resolution: "@parcel/transformer-js@npm:2.10.3"
   dependencies:
@@ -3435,6 +3435,8 @@ __metadata:
   resolution: "parcel-pug-scss-starter@workspace:."
   dependencies:
     "@parcel/packager-raw-url": "npm:2.10.3"
+    "@parcel/transformer-babel": "npm:^2.10.3"
+    "@parcel/transformer-js": "npm:^2.10.3"
     "@parcel/transformer-postcss": "npm:^2.10.3"
     "@parcel/transformer-pug": "npm:2.10.3"
     "@parcel/transformer-sass": "npm:2.10.3"

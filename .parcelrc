@@ -9,8 +9,7 @@
     "*.html": []
   },
   "transformers": {
-      "*.css": [
-        "@parcel/transformer-postcss"
-      ]
-    }
+    "*.css": ["@parcel/transformer-postcss"],
+    "*.js": ["@parcel/transformer-babel", "@parcel/transformer-js"]
+  }
 }

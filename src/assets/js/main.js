@@ -1,7 +1,3 @@
-import {debounce} from "throttle-debounce";
-import Swiper from "swiper";
-import {Controller, Navigation, Keyboard, Mousewheel, Pagination, Autoplay, EffectCoverflow} from "swiper/modules";
-
 let openMobileMenu = false;
 let prevScrollPos = 0;
 
@@ -32,33 +28,24 @@ const initOverlay = () => {
 };
 
 const getScrollbarWidth = () => {
-  // Creating invisible container
   const outer = document.createElement("div");
   outer.style.visibility = "hidden";
-  outer.style.overflow = "scroll"; // forcing scrollbar to appear
-  outer.style.msOverflowStyle = "scrollbar"; // needed for WinJS apps
+  outer.style.overflow = "scroll";
+  outer.style.msOverflowStyle = "scrollbar";
   document.body.appendChild(outer);
 
-  // Creating inner element and placing it in the container
   const inner = document.createElement("div");
   outer.appendChild(inner);
 
-  // Calculating difference between container's full width and the child width
   const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
 
-  // Removing temporary elements from the DOM
   outer.parentNode.removeChild(outer);
 
   return scrollbarWidth;
 };
 
 function getScrollTop() {
-  return (
-    window.pageYOffset ||
-    document.documentElement.scrollTop ||
-    document.body.scrollTop ||
-    0
-  );
+  return (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
 }
 
 const appHeight = () => {
@@ -87,24 +74,19 @@ const initSliders = () => {
           nextEl: "#js-slider-reg-next",
           prevEl: "#js-slider-reg-prev"
         },
-        //breakpoints: {
-        //  1280: {
-        //    spaceBetween: 0
-        //  }
-        //},
         on: {
           init: (swp) => {
             res(swp);
           }
         },
-        modules: [Navigation]
+        //modules: [Navigation]
       });
     }).then(s => {
       sliderRegText = s;
 
       new Promise((res, rej) => {
         new Swiper(regPhoto, {
-          modules: [EffectCoverflow, Controller, Mousewheel, Navigation, Keyboard, Autoplay, Pagination],
+          //modules: [EffectCoverflow, Controller, Mousewheel, Navigation, Keyboard, Autoplay, Pagination],
           effect: 'coverflow',
           //loop: true,
           centeredSlides: true,
@@ -165,7 +147,6 @@ const initSliders = () => {
             }
           }
         });
-
       }).then(s => {
         sliderRegPhoto = s;
 
@@ -184,19 +165,20 @@ document.addEventListener('DOMContentLoaded', function () {
   initSliders();
 });
 
-const debounceScrollUpCheck = debounce(20, (newScrollTop) => {
+const scrollUpCheck = (newScrollTop) => {
   document.documentElement.classList.toggle("__scroll-hide", newScrollTop > 100);
   document.documentElement.classList.toggle("__scroll-up", newScrollTop === 0 ? false : prevScrollPos > newScrollTop);
   document.documentElement.classList.toggle("__scroll-screen", newScrollTop > window.innerHeight);
   prevScrollPos = newScrollTop;
-});
+};
 
+const debounceScrollUpCheck = scrollUpCheck.debounce(20);
 
-function checkWindowScroll() {
+const checkWindowScroll = () => {
   const newScrollTop = getScrollTop();
   document.documentElement.classList.toggle("__scrolled", newScrollTop > 0);
   debounceScrollUpCheck(newScrollTop);
-}
+};
 
 checkWindowScroll();
 

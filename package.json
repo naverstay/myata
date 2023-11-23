@@ -25,7 +25,7 @@
     "dev": "parcel -p 3007",
     "prebuild": "shx rm -rf deploy",
     "build": "parcel build --dist-dir ./deploy",
-    "buildLocal": "parcel build --dist-dir ./dist",
+    "buildLocal": "shx rm -rf dist && parcel build --dist-dir ./dist",
     "predeploy": "npm run build",
     "deploy": "surge --project ./deploy --domain lean-land.surge.sh"
   },
@@ -65,6 +65,8 @@
   ],
   "devDependencies": {
     "@parcel/packager-raw-url": "2.10.3",
+    "@parcel/transformer-babel": "^2.10.3",
+    "@parcel/transformer-js": "^2.10.3",
     "@parcel/transformer-postcss": "^2.10.3",
     "@parcel/transformer-pug": "2.10.3",
     "@parcel/transformer-sass": "2.10.3",
@@ -77,11 +79,11 @@
     "postcss-momentum-scrolling": "^3.14.22",
     "postcss-sort-media-queries": "^5.2.0",
     "posthtml-beautify": "^0.7.0",
-    "shx": "^0.3.4",
-    "throttle-debounce": "^5.0.0"
+    "shx": "^0.3.4"
   },
   "packageManager": "yarn@4.0.2",
   "dependencies": {
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "throttle-debounce": "^5.0.0"
   }
 }
