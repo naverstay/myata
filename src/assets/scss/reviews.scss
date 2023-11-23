@@ -11,6 +11,41 @@
     padding-top: 38px;
   }
 
+  @include respond-to-min($screen_xl) {
+    padding-top: 74px;
+  }
+
+  &--title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 26px;
+    margin-bottom: 16px;
+
+    @include respond-to-min($screen_md) {
+      font-size: 28px;
+      line-height: 34px;
+      margin-bottom: 28px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      font-size: 36px;
+      line-height: 45px;
+      margin-bottom: 36px;
+    }
+
+    @include respond-to-min($screen_xxl) {
+
+    }
+
+    @include respond-to-min($screen_wide) {
+      font-size: 48px;
+      line-height: 60px;
+      margin-bottom: 78px;
+    }
+
+  }
+
   &--slider {
     margin: 0 auto;
     max-width: 292px;
@@ -24,12 +59,12 @@
     }
 
     @include respond-to-min($screen_lg) {
-      max-width: 378px;
+      max-width: 386px;
     }
 
     @include respond-to-min($screen_xl) {
       padding: 11px;
-      max-width: 492px;
+      max-width: 522px;
     }
 
     @include respond-to-min($screen_wide) {
@@ -67,6 +102,16 @@
         height: calc(var(--rating-font-size) - 2px);
         width: auto;
       }
+
+      @include respond-to-min($screen_md) {
+        --rating-font-size: 16px;
+        gap: 4px;
+      }
+
+      @include respond-to-min($screen_xl) {
+        --rating-font-size: 18px;
+        gap: 5px;
+      }
     }
 
     &_caption {
@@ -79,6 +124,12 @@
         font-size: 16px;
         line-height: 18px;
         margin-bottom: 6px;
+      }
+
+      @include respond-to-min($screen_xl) {
+        font-size: 21px;
+        line-height: 24px;
+        margin-bottom: 10px;
       }
     }
 
@@ -122,6 +173,10 @@
           font-size: 14px;
           line-height: 18px;
         }
+
+        @include respond-to-min($screen_xl) {
+          line-height: 20px;
+        }
       }
 
 
@@ -141,6 +196,16 @@
         --slider-btn-size: 28px;
         margin: calc(-0.5 * var(--slider-btn-size)) calc(-0.4 * var(--slider-btn-size));
       }
+
+      @include respond-to-min($screen_md) {
+        --slider-btn-size: 32px;
+        margin: calc(-0.5 * var(--slider-btn-size));
+      }
+
+      @include respond-to-min($screen_xl) {
+        --slider-btn-size: 46px;
+        margin: calc(-0.5 * var(--slider-btn-size)) calc(-0.8 * var(--slider-btn-size));
+      }
     }
 
     &_item {
@@ -153,6 +218,11 @@
         border-radius: 34px 10px 34px 34px;
       }
 
+      @include respond-to-min($screen_xl) {
+        padding: 35px 60px;
+        border-radius: 60px 15px 60px 60px;
+      }
+
 
     }
 
@@ -163,11 +233,12 @@
     margin-top: 12px;
 
     @include respond-to-min($screen_md) {
-      margin-top: 20px;
+      margin-top: 16px;
     }
 
     @include respond-to-min($screen_xl) {
-      margin-top: 38px;
+      margin-top: 24px;
+      margin-bottom: 10px;
     }
 
     @include respond-to-min($screen_xxl) {
@@ -177,37 +248,6 @@
     @include respond-to-min($screen_wide) {
       margin-top: 50px;
     }
-  }
-
-  &--title {
-    text-align: center;
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 26px;
-    margin-bottom: 16px;
-
-    @include respond-to-min($screen_md) {
-      font-size: 28px;
-      line-height: 34px;
-      margin-bottom: 28px;
-    }
-
-    @include respond-to-min($screen_xl) {
-      font-size: 36px;
-      line-height: 45px;
-      margin-bottom: 58px;
-    }
-
-    @include respond-to-min($screen_xxl) {
-
-    }
-
-    @include respond-to-min($screen_wide) {
-      font-size: 48px;
-      line-height: 60px;
-      margin-bottom: 78px;
-    }
-
   }
 
 }

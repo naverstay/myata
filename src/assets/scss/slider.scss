@@ -154,6 +154,19 @@
         line-height: 16px;
       }
 
+      @include respond-to-min($screen_md) {
+        h4 {
+          font-size: 18px;
+          line-height: 22px;
+          margin-bottom: 8px;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+
       @include respond-to-max($screen_xl) {
         text-align: center;
         margin-top: 20px;
@@ -282,19 +295,6 @@
         z-index: 1;
         margin: auto 0;
         overflow: hidden;
-
-        @include respond-to-min($screen_md) {
-          h4 {
-            font-size: 18px;
-            line-height: 22px;
-            margin-bottom: 8px;
-          }
-
-          p {
-            font-size: 14px;
-            line-height: 18px;
-          }
-        }
 
         @include respond-to-min($screen_xl) {
           width: 54%;

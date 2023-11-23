@@ -97,19 +97,19 @@
 
     @include respond-to-min($screen_md) {
       --btn-size: 38px;
-      --btn-gap: 16px;
+      --btn-gap: 24px;
       --btn-font-size: 14px;
     }
 
     @include respond-to-min($screen_lg) {
       --btn-size: 42px;
       --btn-gap: 22px;
-      --btn-font-size: 16px;
     }
 
     @include respond-to-min($screen_xl) {
       --btn-size: 48px;
       --btn-gap: 30px;
+      --btn-font-size: 18px;
     }
 
     @include respond-to-min($screen_xxl) {
