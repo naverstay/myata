@@ -18,6 +18,10 @@
     position: relative;
     z-index: 5;
 
+    .__open-popup & {
+      z-index: 4;
+    }
+
     .__scroll-screen & {
       position: sticky;
       top: 0;

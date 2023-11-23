@@ -1,6 +1,8 @@
 @import "var";
 
 .btn {
+  cursor: pointer;
+  user-select: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,6 +12,10 @@
 
   &--round {
     border-radius: calc(var(--btn-size, 0) / 2);
+  }
+
+  * {
+    pointer-events: none;
   }
 
   &--green {

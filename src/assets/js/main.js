@@ -11,11 +11,40 @@ const toggleMobileMenu = (e) => {
   return false;
 };
 
+const closePopups = () => {
+  document.querySelectorAll(".js-popup").forEach((item) => {
+    item.style.display = 'none';
+  });
+};
+
 const closeMobileMenu = (e) => {
   e?.preventDefault();
   openMobileMenu = false;
-  document.documentElement.classList.toggle("__open-mob-menu", openMobileMenu);
+  document.documentElement.classList.remove("__open-mob-menu");
+  document.documentElement.classList.remove("__open-popup");
+  closePopups();
   return false;
+};
+
+const togglePopup = (open) => {
+  document.documentElement.classList.toggle("__open-popup", open);
+  return false;
+};
+
+const initPopup = () => {
+  document.querySelectorAll(".js-popup-app").forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      const popup = document.getElementById(e.target.getAttribute('data-popup'));
+
+      if (popup) {
+        popup.style.display = 'block';
+        togglePopup(true);
+      }
+
+      return false;
+    });
+  });
 };
 
 const initBurger = () => {
@@ -198,7 +227,7 @@ const initReviews = () => {
             res(swp);
           }
         },
-        slidesPerView: 1,
+        slidesPerView: 1
       });
     }).then(s => {
       sliderReviews = s;
@@ -213,6 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initOverlay();
   initSliders();
   initReviews();
+  initPopup();
 });
 
 const scrollUpCheck = (newScrollTop) => {
