@@ -1,15 +1,16 @@
 mixin app_btns()
   a.btn.btn--green.__s-54.btn--round(href='https://play.google.com/store/apps/details?id=mint.dating')
-    img(src='./assets/svg/googleplay.svg')
+    img(alt='img' src='./assets/svg/googleplay.svg' width=146 heigth=46)
   a.btn.btn--green.__s-54.btn--round(href='https://appgallery.cloud.huawei.com/ag/n/app/C104537637?locale=ru_RU&source=appshare&subsource=C104537637&shareTo=com.android.bluetooth&shareFrom=appmarket&shareIds=9757f3c7f6b34794a4d02f608c805ff1_com.android.bluetooth&callType=SHARE')
-    img(src='./assets/svg/appgallery.svg')
-    a.btn.btn--green.__s-54.btn--round(href='https://apps.rustore.ru/app/mint.dating')
-      img(src='./assets/svg/rustore.svg')
+    img(alt='img' src='./assets/svg/appgallery.svg' width=139 heigth=46)
+  a.btn.btn--green.__s-54.btn--round(href='https://apps.rustore.ru/app/mint.dating')
+    img(alt='img' src='./assets/svg/rustore.svg' width=130 heigth=46)
 
 mixin img_src(path, name, ext)
-  - let x1 = path + name + '.' + ext;
+  - let as = '?as=avif';
+  - let x1 = path + name + '.' + ext + as;
 
-  img(src=x1 loading='lazy' srcset=path + name + '@2x.' + ext + ' 2x, ' + x1 + ' 1x')
+  img(alt='img' src=x1 loading='lazy' srcset=path + name + '@2x.' + ext + as + ' 2x, ' + x1 + ' 1x')&attributes(attributes)
 
 mixin loop_while(counter)
   - let i = 0;

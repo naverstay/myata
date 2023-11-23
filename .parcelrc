@@ -4,10 +4,6 @@
     "parcel-namer-struct",
     "..."
   ],
-  "optimizers": {
-    "*.{jpg,jpeg,png}": [],
-    "*.html": []
-  },
   "transformers": {
     "*.css": ["@parcel/transformer-postcss"],
     "*.js": ["@parcel/transformer-babel", "@parcel/transformer-js"]

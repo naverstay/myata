@@ -55,6 +55,8 @@
     },
     {
       "type": [
+        "avif",
+        "webp",
         "svg",
         "jpeg",
         "jpg",
@@ -63,6 +65,18 @@
       "dest": "/images/"
     }
   ],
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "modules": true,
+          "useBuiltIns": "usage",
+          "corejs": 3
+        }
+      ]
+    ]
+  },
   "devDependencies": {
     "@parcel/packager-raw-url": "2.10.3",
     "@parcel/transformer-babel": "^2.10.3",
@@ -79,11 +93,11 @@
     "postcss-momentum-scrolling": "^3.14.22",
     "postcss-sort-media-queries": "^5.2.0",
     "posthtml-beautify": "^0.7.0",
+    "sharp": "^0.31.1",
     "shx": "^0.3.4"
   },
   "packageManager": "yarn@4.0.2",
   "dependencies": {
-    "swiper": "^11.0.5",
-    "throttle-debounce": "^5.0.0"
+    "swiper": "^11.0.5"
   }
 }

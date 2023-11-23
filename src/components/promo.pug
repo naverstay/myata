@@ -8,9 +8,9 @@ mixin promo(props = {})
 
     .promo--right
       .promo--screen
-        img(src='./assets/image/phone-3.png' loading='lazy' srcset='./assets/image/phone-3@2x.png 2x, ./assets/image/phone-3.png 1x')
+        +img_src('./assets/image/', 'phone-3', 'png')(width=260 heigth=479)
       .promo--screen
-        img(src='./assets/image/phone-2.png' loading='lazy' srcset='./assets/image/phone-2@2x.png 2x, ./assets/image/phone-2.png 1x')
+        +img_src('./assets/image/', 'phone-2', 'png')(width=260 heigth=479)
 
     .promo--stat
       .promo--stat_item

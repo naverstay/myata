@@ -78,7 +78,7 @@ const initSliders = () => {
           init: (swp) => {
             res(swp);
           }
-        },
+        }
         //modules: [Navigation]
       });
     }).then(s => {

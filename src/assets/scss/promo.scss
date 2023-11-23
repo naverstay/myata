@@ -147,6 +147,7 @@
     .btn {
 
       img {
+        width: auto;
         max-height: calc(var(--btn-size) - var(--app-image-gap));
       }
     }
