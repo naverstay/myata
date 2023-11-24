@@ -211,7 +211,7 @@ const initSliders = () => {
       }).then(s => {
         sliderRegPhoto = s;
 
-        regPagination.style.setProperty("--slider-delay", AUTO_PLAY_DELAY + `ms`);
+        regPagination.style.setProperty("--slider-delay", sliderRegPhoto.params.speed + `ms`);
 
         sliderRegPhoto.slideTo(1);
       });
@@ -238,7 +238,7 @@ const initFunctionsSliders = () => {
 
   const updateSlideIndexes = function (active) {
     document.querySelectorAll(".js-slide-to-parent").forEach((item, index) => {
-      item.classList[index === active ? 'add' : 'remove']("__active");
+      item.classList[index === active ? "add" : "remove"]("__active");
     });
   };
 
@@ -315,7 +315,7 @@ const initFunctionsSliders = () => {
     }).then(s => {
       sliderPhoto1 = s;
 
-      funcPagination.style.setProperty("--slider-delay", AUTO_PLAY_DELAY + `ms`);
+      funcPagination.style.setProperty("--slider-delay", sliderPhoto1.params.speed + `ms`);
 
       new Promise((res, rej) => {
         new Swiper(funcPhoto2, {
@@ -404,6 +404,62 @@ const initReviews = () => {
   }
 };
 
+const initDatings = () => {
+  let sliderReviews;
+  let useAutoplay = {};
+  const datingsBlock = document.getElementById("js-slider-datings");
+
+  if (PROD) {
+    useAutoplay = {
+      autoplay: {
+        delay: AUTO_PLAY_DELAY
+      }
+    };
+  }
+
+  if (datingsBlock) {
+    new Promise((res, rej) => {
+      new Swiper(datingsBlock, {
+        speed: 2000,
+        slidesPerView: 1,
+        navigation: {
+          nextEl: "#js-slider-datings-next",
+          prevEl: "#js-slider-datings-prev"
+        },
+        watchSlidesProgress: true,
+        virtualTranslate: true,
+        effect: "islandCustomTransition",
+        on: {
+          init: (swp) => {
+            res(swp);
+          },
+          progress(progress) {
+
+          },
+          setTransition(transition) {
+
+          },
+          setTranslate(translate) {
+
+          }
+        }
+      });
+    }).then(s => {
+      sliderReviews = s;
+
+      datingsBlock.style.setProperty("--slider-delay", sliderReviews.params.speed + `ms`);
+
+      //setInterval(() => {
+      //  let index = sliderReviews.activeIndex + 1;
+      //  if (index > sliderReviews.slides.length - 1) {
+      //    index = 0;
+      //  }
+      //  sliderReviews.slideTo(index);
+      //}, 5000);
+    });
+  }
+};
+
 document.addEventListener("DOMContentLoaded", function () {
   appHeight();
   initBurger();
@@ -412,6 +468,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initSliders();
   initReviews();
   initFunctionsSliders();
+  initDatings();
   initPopup();
 });
 
