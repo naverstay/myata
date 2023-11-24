@@ -17,7 +17,8 @@
                          "app island";
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr;
-    padding: 33px 0 50px 90px;
+    padding: 33px 0 10px 90px;
+    margin-bottom: -25px;
   }
 
   @include respond-to-min($screen_wide) {
