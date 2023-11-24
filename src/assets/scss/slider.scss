@@ -98,6 +98,7 @@
 
         @include respond-to-min($screen_wide) {
           height: 5px;
+          width: 46px;
         }
       }
 
@@ -111,6 +112,7 @@
 
       @include respond-to-min($screen_wide) {
         margin-top: 35px;
+        gap: 14px;
       }
     }
 

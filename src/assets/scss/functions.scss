@@ -37,6 +37,14 @@
 
     @include respond-to-min($screen_wide) {
       --screen-offset-left: 135px;
+      --screen-offset-top: 70px;
+      max-width: 470px;
+      padding-top: 5px;
+      margin-bottom: auto;
+
+      .slider--reg_pagination {
+        margin-top: 12px;
+      }
     }
 
 
@@ -83,7 +91,7 @@
         }
 
         @include respond-to-min($screen_wide) {
-          width: 304px;
+          width: 300px;
         }
       }
     }
@@ -111,8 +119,12 @@
     grid-template-rows: auto 1fr;
   }
 
+  @include respond-to-min($screen_xxl) {
+    padding: 84px 125px 18px;
+  }
+
   @include respond-to-min($screen_wide) {
-    padding-top: 98px;
+    padding: 112px 170px 20px;
   }
 
   &--title {
@@ -143,7 +155,8 @@
     @include respond-to-min($screen_wide) {
       font-size: 40px;
       line-height: 60px;
-      margin-bottom: 54px;
+      padding: 0 40px;
+      margin-bottom: 36px;
     }
 
   }
@@ -177,7 +190,7 @@
     }
 
     @include respond-to-min($screen_wide) {
-      max-width: 690px;
+      max-width: 590px;
     }
 
     .swiper {
@@ -186,6 +199,7 @@
 
     .slide {
       padding: 5px;
+      cursor: pointer;
 
       &.__active {
         z-index: 1;
@@ -336,7 +350,7 @@
 
       @include respond-to-min($screen_wide) {
         --icon-size: 64px;
-        gap: 28px 12px;
+        gap: 10px 30px;
         padding: 28px 38px;
         border-radius: 40px;
       }
