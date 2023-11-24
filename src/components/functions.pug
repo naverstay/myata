@@ -1,32 +1,61 @@
 include ./mixins
 
+mixin slides(invert)
+  if (invert)
+    .swiper-slide.slide
+      img(alt='img' src=('./assets/image/slides/slide_a.png') width=240 heigth=534)
+  .swiper-slide.slide
+    img(alt='img' src=('./assets/image/slides/slide_m.png') width=240 heigth=534)
+  if (!invert)
+    .swiper-slide.slide
+      img(alt='img' src=('./assets/image/slides/slide_a.png') width=240 heigth=534)
+
 mixin functions(props = {})
-  .functions
+  - let title = ['Полноценный месседжер', 'Лента по интересам', 'Любимые свайпы', 'Расширенный поиск'];
+  - let icon = ['msg', 'feed', 'like', 'search'];
+  - let text = ['Используйте наш мессенджер для беспрепятственного общения. Отправляйте голосовые сообщения, стикеры и фотографии, устанавливайте близкие связи.', 'Лента по интересам для захватывающих знакомств. Найдите новые увлечения и общайтесь с людьми, разделяющими ваше видение жизни.', 'Свайпы упрощают процесс поиска, позволяя вам отсеивать неподходящие варианты. Это удобный способ для поиска своей идеальной половинки.', 'Наши расширенные фильтры предоставляют вам возможность точно указать ваши предпочтения по многим параметрам.'];
+
+  .functions.relative
     .functions--title Много полезных функций
+
+    .screens--slider
+      #js-slider-functions-pagination.swiper-pagination.slider--reg_pagination.flex.__center
+
+      .screens--slider_holder.flex.__center-align.__center.relative
+        .functions--slider_controls.flex.__between.hide__after-xl
+          #js-slider-functions-prev.btn--green.swiper-button-prev.slider--button.__prev.flex.__center.__center-align
+            img(alt='img' src='./assets/svg/arrow_l.svg' width=42 heigth=42)
+          #js-slider-functions-next.btn--green.swiper-button-next.slider--button.__next.flex.__center.__center-align
+            img(alt='img' src='./assets/svg/arrow_r.svg' width=42 heigth=42)
+
+        .screens--slider_front
+          .screens--slider_wrapper.relative
+            img(alt='img' src=('./assets/image/main-dialog.svg') width=258 heigth=552)
+            .screens--slider_block
+              #js-slider-screen-1.swiper
+                .swiper-wrapper
+                  +loop_while(2)
+                    +slides()
+
+        .screens--slider_back.relative
+          .screens--slider_wrapper.relative
+            img(alt='img' src=('./assets/image/main-dialog.svg') width=258 heigth=552)
+            .screens--slider_block
+              #js-slider-screen-2.swiper
+                .swiper-wrapper
+                  +loop_while(2)
+                    +slides(true)
 
     .functions--slider.relative
       #js-slider-functions.swiper
         .swiper-wrapper
-          each name, ind in ['Александр', 'Светлана Р.', 'Сеня', 'Артем Р.', 'Johnny']
-            .swiper-slide.slide
-              .functions--slider_item
+          each name, ind in title
+            .swiper-slide.slide.js-slide-to-parent
+              .functions--slider_item.js-slide-to(data-slide= ind)
+                .functions--slider_icon.flex.__center.__center-align
+                  img(alt='img' src=('./assets/svg/' + icon[ind] + '.svg') width=34 heigth=34)
                 .functions--slider_caption.flex.__between.__center-align
                   h4= name
-                  span.flex.__center-align.functions--slider_rating
-                    img(alt='img' src='./assets/svg/star.svg' width=23 heigth=24)
-                    span 5
+
                 .functions--slider_text
-                  p Приложение по сути неплохое: визуал симпатичный, довольно удобное в&nbsp;использовании, весит немного, не&nbsp;тормозит. Регистрация быстрая и простая, достаточно номера телефона. Мне пока не удалось довольно удобное в&nbsp;использовании, весит немного, не&nbsp;тормозит. Регистрация быстрая и простая, достаточно номера телефона. Мне пока не удалось
-
-                .flex.__end.functions--slider_more
-                  a.link--green(href='#') Читать полностью
-
-      .functions--slider_controls.flex.__between
-        #js-slider-functions-prev.btn--green.swiper-button-prev.slider--button.__prev.flex.__center.__center-align
-          img(alt='img' src='./assets/svg/arrow_l.svg' width=42 heigth=42)
-        #js-slider-functions-next.btn--green.swiper-button-next.slider--button.__next.flex.__center.__center-align
-          img(alt='img' src='./assets/svg/arrow_r.svg' width=42 heigth=42)
-
-    .functions--download.flex.__center.__center-align
-      a.btn.btn--green.__s-64.btn--round(href='#')
-        span Скачать приложение
+                  p= text[ind]

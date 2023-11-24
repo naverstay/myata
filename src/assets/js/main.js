@@ -20,7 +20,7 @@ const toggleMobileMenu = (e) => {
 
 const closePopups = () => {
   document.querySelectorAll(".js-popup").forEach((item) => {
-    item.style.display = 'none';
+    item.style.display = "none";
   });
 };
 
@@ -45,7 +45,7 @@ const initPopup = () => {
       const popup = document.getElementById(item.dataset.popup);
 
       if (popup) {
-        popup.style.display = 'block';
+        popup.style.display = "block";
         togglePopup(true);
       }
 
@@ -70,7 +70,7 @@ const initGoto = () => {
   document.querySelectorAll(".js-goto").forEach((item) => {
     item.addEventListener("click", (e) => {
       e.preventDefault();
-      const target = document.getElementById(item?.getAttribute('href')?.replace('#', ''));
+      const target = document.getElementById(item?.getAttribute("href")?.replace("#", ""));
 
       if (target) {
         closeMobileMenu();
@@ -113,9 +113,9 @@ const appHeight = () => {
 const initSliders = () => {
   let sliderRegPhoto, sliderRegText;
   let useAutoplay = {};
-  const regPagination = document.getElementById('js-slider-reg-pagination');
-  const regPhoto = document.getElementById('js-slider-reg-photo');
-  const regText = document.getElementById('js-slider-reg-text');
+  const regPagination = document.getElementById("js-slider-reg-pagination");
+  const regPhoto = document.getElementById("js-slider-reg-photo");
+  const regText = document.getElementById("js-slider-reg-text");
 
   if (PROD) {
     useAutoplay = {
@@ -152,7 +152,7 @@ const initSliders = () => {
           //loop: true,
           ...useAutoplay,
           speed: 500,
-          effect: 'coverflow',
+          effect: "coverflow",
           centeredSlides: true,
           pagination: {
             el: regPagination,
@@ -219,10 +219,152 @@ const initSliders = () => {
   }
 };
 
+const initFunctionsSliders = () => {
+  let sliderPhoto1, sliderPhoto2, sliderFunctions;
+  let useAutoplay = {};
+  const breakpoint = window.matchMedia("(min-width:1280px)");
+  const functionsText = document.getElementById("js-slider-functions");
+  const funcPagination = document.getElementById("js-slider-functions-pagination");
+  const funcPhoto1 = document.getElementById("js-slider-screen-1");
+  const funcPhoto2 = document.getElementById("js-slider-screen-2");
+
+  if (PROD) {
+    useAutoplay = {
+      autoplay: {
+        delay: AUTO_PLAY_DELAY
+      }
+    };
+  }
+
+  const updateSlideIndexes = function (active) {
+    document.querySelectorAll(".js-slide-to-parent").forEach((item, index) => {
+      item.classList[index === active ? 'add' : 'remove']("__active");
+    });
+  };
+
+  const enableSwiper = function () {
+    new Promise((res, rej) => {
+      new Swiper(functionsText, {
+        //loop: true,
+        allowTouchMove: true,
+        speed: 500,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        initialSlide: sliderPhoto1?.activeIndex ?? 0,
+        mousewheel: {
+          thresholdDelta: 70
+        },
+        on: {
+          init: (swp) => {
+            res(swp);
+          },
+          slideChange() {
+            sliderPhoto1.slideTo(this.activeIndex);
+          }
+        }
+      });
+    }).then(s => {
+      sliderFunctions = s;
+
+      setTimeout(() => {
+        updateSlideIndexes(sliderFunctions.activeIndex);
+      }, 1);
+    });
+  };
+
+  const breakpointChecker = function () {
+    if (breakpoint.matches === true) {
+      if (sliderFunctions !== undefined) {
+        sliderFunctions.destroy(true, true);
+        return false;
+      }
+    } else if (breakpoint.matches === false) {
+      return enableSwiper();
+    }
+  };
+
+  if (functionsText && funcPhoto1 && funcPhoto2) {
+    new Promise((res, rej) => {
+      new Swiper(funcPhoto1, {
+        //loop: true,
+        speed: 500,
+        slidesPerView: 1,
+        effect: "fade",
+        //fadeEffect: {
+        //  crossFade: true
+        //},
+        navigation: {
+          nextEl: "#js-slider-functions-next",
+          prevEl: "#js-slider-functions-prev"
+        },
+        pagination: {
+          el: funcPagination,
+          clickable: true,
+          type: "bullets"
+        },
+        on: {
+          init: (swp) => {
+            res(swp);
+          },
+          slideChange() {
+            if (!sliderFunctions?.destroyed) {
+              sliderFunctions.slideTo(this.activeIndex);
+            }
+            sliderPhoto2.slideTo(this.activeIndex);
+
+            updateSlideIndexes(this.activeIndex);
+          }
+        }
+      });
+    }).then(s => {
+      sliderPhoto1 = s;
+
+      funcPagination.style.setProperty("--slider-delay", AUTO_PLAY_DELAY + `ms`);
+
+      new Promise((res, rej) => {
+        new Swiper(funcPhoto2, {
+          //loop: true,
+          speed: 500,
+          slidesPerView: 1,
+          effect: "fade",
+          //fadeEffect: {
+          //  crossFade: true
+          //},
+          on: {
+            init: (swp) => {
+              res(swp);
+            },
+            slideChange() {
+              sliderPhoto1.slideTo(this.activeIndex);
+            }
+          }
+        });
+      }).then(s => {
+        sliderPhoto2 = s;
+
+        //document.querySelectorAll(".js-slide-to").forEach((item) => {
+        //  item.addEventListener("click", () => {
+        //    const clickedIndex = parseInt(item.dataset.slide);
+        //
+        //    if (!sliderFunctions?.destroyed) {
+        //      sliderFunctions.slideTo(clickedIndex);
+        //    }
+        //
+        //    sliderPhoto2.slideTo(clickedIndex);
+        //  });
+        //});
+
+        breakpoint.addEventListener("change", breakpointChecker);
+        breakpointChecker();
+      });
+    });
+  }
+};
+
 const initReviews = () => {
   let sliderReviews;
   let useAutoplay = {};
-  const reviewsBlock = document.getElementById('js-slider-reviews');
+  const reviewsBlock = document.getElementById("js-slider-reviews");
 
   if (PROD) {
     useAutoplay = {
@@ -262,13 +404,14 @@ const initReviews = () => {
   }
 };
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   appHeight();
   initBurger();
   initGoto();
   initOverlay();
   initSliders();
   initReviews();
+  initFunctionsSliders();
   initPopup();
 });
 
