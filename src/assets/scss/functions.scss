@@ -6,12 +6,18 @@
     --screen-offset-top: 23px;
     --screen-offset-left: 46px;
     grid-area: screens;
-    display: inline-block;
+    margin: 0 auto;
+    max-width: 240px;
     padding-bottom: var(--screen-offset-top);
+
+    @include respond-to-min($screen_sm) {
+      max-width: 280px;
+    }
 
     @include respond-to-min($screen_md) {
       --screen-offset-top: 35px;
       --screen-offset-left: 55px;
+      max-width: 300px;
     }
 
     @include respond-to-min($screen_xl) {
@@ -249,7 +255,7 @@
     &_controls {
       --slider-btn-size: 32px;
       position: absolute;
-      margin: calc(-0.4 * var(--slider-btn-size)) calc(-1.3 * var(--slider-btn-size));
+      margin: calc(-0.4 * var(--slider-btn-size)) calc(-0.9 * var(--slider-btn-size));
       top: 50%;
       left: 0;
       right: 0;
