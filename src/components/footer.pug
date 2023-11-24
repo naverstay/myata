@@ -7,12 +7,9 @@ mixin footer()
 
     .footer--download
       p.hide__after-xl Скачивайте наше приложение
-      .footer--app
+      .footer--app.flex.__center.__center-align
         +app_btns()
 
-    nav.nav
-      ul.navigation
-        each item, ind in navigation
-          li: a.js-goto(href='#section-' + (ind + 1))= item
+    +nav()
 
     .footer--copy ©2023 ООО «Дейтинг Лаб». ВСЕ ПРАВА ЗАЩИЩЕНЫ

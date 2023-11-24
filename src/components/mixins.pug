@@ -6,6 +6,12 @@ mixin app_btns()
   a.btn.btn--green.__s-54.btn--round(href='https://apps.rustore.ru/app/mint.dating')
     img(alt='img' src='./assets/svg/rustore.svg' width=130 heigth=46)
 
+mixin nav(path, name, ext)
+  nav.nav
+    ul.navigation
+      each item, ind in navigation
+        li: a.js-goto(href='#section-' + (ind + 1))= item
+
 mixin img_src(path, name, ext)
   - let as = '?as=avif';
   - let x1 = path + name + '.' + ext + as;

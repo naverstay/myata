@@ -29,7 +29,7 @@
         top: 0;
         right: 0;
         left: 0;
-        visibility: hidden;
+        opacity: 0;
 
         .header {
           transition: padding .3s, margin .3s, transform .3s, background .3s;
@@ -38,18 +38,19 @@
       }
 
       .__scroll-screen & {
-        visibility: visible;
+        opacity: 1;
+        transition: opacity .3s;
 
         .header {
           transform: translateY(0);
           background: $color_white;
-          padding-top: 4px;
-          padding-bottom: 4px;
           box-shadow: 0 1px 4px rgba(45, 45, 45, .25);
 
           @include respond-to-min($screen_wide) {
-            padding-top: 14px;
-            padding-bottom: 14px;
+
+            .navigation {
+              padding-top: 3px;
+            }
           }
         }
       }
@@ -99,7 +100,8 @@
   }
 
   @include respond-to-min($screen_xl) {
-    margin: 15px auto 5px;
+    padding: 5px 0;
+    margin: 20px auto 10px;
     max-width: 970px;
   }
 
@@ -107,7 +109,7 @@
     --btn-size: 48px;
     --btn-gap: 30px;
     --btn-font-size: 18px;
-    padding: 20px;
+    padding: 15px 20px;
     max-width: 1336px;
   }
 
@@ -194,38 +196,7 @@
 }
 
 .navigation {
-  --nav-font-size: 10px;
   pointer-events: all;
-  min-height: 100%;
-  align-items: center;
-  justify-content: center;
-  gap: 52px;
-
-  @include respond-to-min($screen_md) {
-    --nav-font-size: 14px;
-  }
-
-  @include respond-to-min($screen_lg) {
-    --nav-font-size: 11px;
-    display: flex;
-    max-width: 530px;
-    margin: 0 auto;
-  }
-
-  @include respond-to-min($screen_xl) {
-    --nav-font-size: 12px;
-    gap: 55px;
-  }
-
-  @include respond-to-min($screen_wide) {
-    --nav-font-size: 14px;
-    max-width: none;
-    gap: 85px;
-  }
-
-  li {
-
-  }
 
   a {
     transition: color .3s;
@@ -238,8 +209,37 @@
     }
   }
 
-  @include respond-to-max($screen_lg) {
-    .header & {
+  .header & {
+    --nav-font-size: 10px;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    gap: 52px;
+
+    @include respond-to-min($screen_md) {
+      --nav-font-size: 14px;
+    }
+
+    @include respond-to-min($screen_lg) {
+      --nav-font-size: 11px;
+      display: flex;
+      max-width: 530px;
+      margin: 0 auto;
+    }
+
+    @include respond-to-min($screen_xl) {
+      --nav-font-size: 12px;
+      gap: 55px;
+    }
+
+    @include respond-to-min($screen_wide) {
+      --nav-font-size: 14px;
+      max-width: none;
+      gap: 85px;
+    }
+
+
+    @include respond-to-max($screen_lg) {
       transition: top .3s, transform .3s;
       transform: translateY(-100%);
       position: absolute;

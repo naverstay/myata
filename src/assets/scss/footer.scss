@@ -8,14 +8,98 @@ footer {
 }
 
 .footer {
-  padding: 14px;
+  padding-top: 30px;
+
+  .navigation {
+    --nav-font-size: 9px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    max-width: 420px;
+    margin: 0 auto;
+
+    @include respond-to-min($screen_md) {
+      --nav-font-size: 12px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      --nav-font-size: 11px;
+
+      li {
+        line-height: 15px;
+      }
+    }
+
+    li {
+      font-size: var(--nav-font-size);
+      line-height: 13px;
+      flex: 1 0 auto;
+      text-align: center;
+      position: relative;
+      padding: 0 2px;
+
+      + li {
+        @include respond-to-max($screen_lg) {
+          &::before {
+            content: '/';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            color: #bfbfbf;
+          }
+        }
+      }
+    }
+  }
+
+  &--copy {
+    text-align: center;
+    font-size: 9px;
+    font-weight: 500;
+    line-height: 14px;
+    color: #808080;
+    padding: 28px 0 26px;
+
+    @include respond-to-min($screen_md) {
+      padding: 30px 0;
+    }
+  }
+
+  &--app {
+    --app-image-gap: 5px;
+    gap: 5px;
+    padding: 14px 0 24px;
+
+    @include respond-to-min($screen_sm) {
+      gap: 8px;
+    }
+
+    @include respond-to-min($screen_md) {
+      gap: 10px;
+    }
+
+    @include respond-to-min($screen_lg) {
+
+    }
+
+    .btn img {
+      width: auto;
+      max-height: calc(var(--btn-size) - var(--app-image-gap));
+    }
+  }
 
   &--download {
 
     p {
+      text-align: center;
       font-size: 16px;
       font-weight: 500;
       line-height: 18px;
+
+      @include respond-to-min($screen_md) {
+        font-size: 18px;
+        line-height: 21px;
+      }
     }
   }
 
