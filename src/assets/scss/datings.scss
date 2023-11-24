@@ -67,7 +67,6 @@
     }
 
     @include respond-to-min($screen_xl) {
-      padding: 11px;
       max-width: 522px;
     }
 

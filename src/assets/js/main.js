@@ -265,10 +265,6 @@ const initFunctionsSliders = () => {
       });
     }).then(s => {
       sliderFunctions = s;
-
-      setTimeout(() => {
-        updateSlideIndexes(sliderFunctions.activeIndex);
-      }, 1);
     });
   };
 
@@ -307,7 +303,7 @@ const initFunctionsSliders = () => {
             res(swp);
           },
           slideChange() {
-            if (!sliderFunctions?.destroyed) {
+            if (sliderFunctions && !sliderFunctions?.destroyed) {
               sliderFunctions.slideTo(this.activeIndex);
             }
             sliderPhoto2.slideTo(this.activeIndex);
@@ -342,17 +338,21 @@ const initFunctionsSliders = () => {
       }).then(s => {
         sliderPhoto2 = s;
 
-        //document.querySelectorAll(".js-slide-to").forEach((item) => {
-        //  item.addEventListener("click", () => {
-        //    const clickedIndex = parseInt(item.dataset.slide);
-        //
-        //    if (!sliderFunctions?.destroyed) {
-        //      sliderFunctions.slideTo(clickedIndex);
-        //    }
-        //
-        //    sliderPhoto2.slideTo(clickedIndex);
-        //  });
-        //});
+        document.querySelectorAll(".js-slide-to").forEach((item) => {
+          item.addEventListener("click", () => {
+            const clickedIndex = parseInt(item.dataset.slide);
+
+            if (sliderFunctions && !sliderFunctions?.destroyed) {
+              sliderFunctions.slideTo(clickedIndex);
+            }
+
+            sliderPhoto2.slideTo(clickedIndex);
+          });
+        });
+
+        setTimeout(() => {
+          updateSlideIndexes(sliderPhoto2.activeIndex);
+        }, 1);
 
         breakpoint.addEventListener("change", breakpointChecker);
         breakpointChecker();
