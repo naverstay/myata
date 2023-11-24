@@ -21,8 +21,14 @@
     margin-bottom: -25px;
   }
 
+  @include respond-to-min($screen_xxl) {
+    padding-left: 125px;
+    padding-right: 45px;
+  }
+
   @include respond-to-min($screen_wide) {
-    padding-top: 50px;
+    padding: 50px 55px 10px 175px;
+    margin-bottom: -35px;
   }
 
   &--app {
@@ -82,7 +88,9 @@
     @include respond-to-min($screen_wide) {
       font-size: 48px;
       line-height: 60px;
-      margin-bottom: 54px;
+      margin-bottom: 34px;
+      max-width: 100%;
+      margin-top: 65px;
     }
   }
 
