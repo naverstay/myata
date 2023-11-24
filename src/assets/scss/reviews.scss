@@ -79,6 +79,11 @@
 
     .slide {
       padding: 5px;
+      transition: opacity .3s;
+
+      &:not(.swiper-slide-active) {
+        opacity: .4;
+      }
 
       @include respond-to-min($screen_md) {
         padding: 6px;

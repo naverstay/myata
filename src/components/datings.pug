@@ -3,22 +3,23 @@ include ./mixins
 mixin datings(props = {})
   .datings
     .datings--title В Мяте знакомятся уже 5&nbsp;миллионов человек — присоединяйтесь!
-    .datings--app
+    .datings--app.flex
       +app_btns()
 
     .datings--slider.relative
-      #js-slider-datings.swiper
-        .swiper-wrapper
-          each name, ind in ['Александр', 'Светлана Р.', 'Сеня', 'Артем Р.', 'Johnny']
-            .swiper-slide.slide
-              .datings--slider_item
-                .datings--slider_caption.flex.__between.__center-align
-                  h4= name
-                  span.flex.__center-align.datings--slider_rating
-                    img(alt='img' src='./assets/svg/star.svg' width=23 heigth=24)
-                    span 5
-                .datings--slider_text
-                  p Приложение по сути неплохое: визуал симпатичный, довольно удобное в&nbsp;использовании, весит немного, не&nbsp;тормозит. Регистрация быстрая и простая, достаточно номера телефона. Мне пока не удалось довольно удобное в&nbsp;использовании, весит немного, не&nbsp;тормозит. Регистрация быстрая и простая, достаточно номера телефона. Мне пока не удалось
+      .datings--slider_island.relative.flex.__center.__center-align
+        //-img(alt='img' src='./assets/svg/island.svg' width=322 heigth=318)
 
-                .flex.__end.datings--slider_more
-                  a.link--green(href='#') Читать полностью
+        .datings--slider_holder
+          #js-slider-datings.swiper
+            .swiper-wrapper
+              each u, i in new Array(1).fill(null)
+                - let user = i + 1
+                .swiper-slide.slide.relative
+                  each n, ind in new Array(9).fill(null)
+                    - let slide = ind + 1
+                      .datings--slider_item(class= 'item-' + slide)
+                        +img_src('./assets/image/users/', 'user-' + user + '-' + slide, 'png')(width=100 heigth=100)
+
+        //-.datings--slider_heart
+          img(alt='img' src='./assets/svg/myata.svg' width=180 heigth=160)

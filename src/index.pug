@@ -4,6 +4,7 @@ include ./components/reg_sliders
 include ./components/reviews
 include ./components/functions
 include ./components/datings
+include ./components/faq
 include ./components/mixins
 
 block head
@@ -30,10 +31,13 @@ block content
       .section
         +functions()
 
-    //-section#section-4.section--holder.__white.__end.__start.ovh
+    section.section--holder.__white.__end.__start.ovh
       .section
         +datings()
 
+    section#section-4.section--holder.__gray.__end.__start.ovh
+      .section
+        +faq()
 
 block scripts
   script(type="module" src="./assets/js/main.js")

@@ -71,6 +71,19 @@
     }
 
     &_wrapper {
+      background: url($phone_base64) no-repeat 50% 50%;
+      background-size: contain;
+
+      display: block;
+      width: 130px;
+      //height: 277px;
+      filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.16));
+
+      &::before {
+        content: '';
+        display: block;
+        padding-bottom: 214%;
+      }
 
       .slide {
         img {
@@ -78,21 +91,19 @@
         }
       }
 
-      > img {
-        width: 130px;
-        filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.16));
+      @include respond-to-min($screen_md) {
+        width: 135px;
+        //height: 290px;
+      }
 
-        @include respond-to-min($screen_md) {
-          width: 135px;
-        }
+      @include respond-to-min($screen_xl) {
+        width: 225px;
+        //height: 480px;
+      }
 
-        @include respond-to-min($screen_xl) {
-          width: 225px;
-        }
-
-        @include respond-to-min($screen_wide) {
-          width: 300px;
-        }
+      @include respond-to-min($screen_wide) {
+        width: 300px;
+        //height: 642px;
       }
     }
   }
@@ -124,7 +135,7 @@
   }
 
   @include respond-to-min($screen_wide) {
-    padding: 112px 170px 20px;
+    padding: 112px 170px 25px;
   }
 
   &--title {
