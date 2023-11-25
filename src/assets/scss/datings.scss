@@ -81,10 +81,6 @@
       text-align: left;
     }
 
-    @include respond-to-min($screen_xxl) {
-
-    }
-
     @include respond-to-min($screen_wide) {
       font-size: 48px;
       line-height: 60px;
@@ -95,7 +91,6 @@
   }
 
   &--slider {
-    --slider-delay: 2000ms;
     grid-row: 1/3;
 
     @include respond-to-min($screen_lg) {
@@ -122,11 +117,8 @@
       right: 0;
 
       .swiper {
+        --slider-delay: 2000ms;
         height: 100%;
-      }
-
-      .swiper-wrapper {
-
       }
     }
 

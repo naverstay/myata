@@ -322,29 +322,9 @@
         transform: translate(var(--aside-offset-x), var(--aside-offset-y));
       }
 
-      @include respond-to-min($screen_sm) {
-
-      }
-
-      @include respond-to-min($screen_md) {
-
-      }
-
-      @include respond-to-min($screen_lg) {
-
-      }
-
       @include respond-to-min($screen_xl) {
         --aside-offset-y: -50%;
         padding: 8%;
-      }
-
-      @include respond-to-min($screen_xxl) {
-
-      }
-
-      @include respond-to-min($screen_wide) {
-
       }
     }
 

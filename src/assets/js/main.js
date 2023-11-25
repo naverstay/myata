@@ -586,7 +586,7 @@ const initDatings = () => {
   if (datingsBlock) {
     new Promise((res, rej) => {
       new Swiper(datingsBlock, {
-        speed: 7000,
+        speed: 2000,
         slidesPerView: 1,
         navigation: {
           nextEl: "#js-slider-datings-next",
@@ -613,7 +613,7 @@ const initDatings = () => {
     }).then(s => {
       sliderReviews = s;
 
-      //datingsBlock.style.setProperty("--slider-delay", 1000 + `ms`);
+      datingsBlock.style.setProperty("--slider-delay", sliderReviews.params.speed + `ms`);
 
       if (PROD) {
         setInterval(() => {
@@ -622,7 +622,7 @@ const initDatings = () => {
             index = 0;
           }
           sliderReviews.slideTo(index);
-        }, AUTO_PLAY_DELAY);
+        }, AUTO_PLAY_DELAY * 2);
       }
     });
   }

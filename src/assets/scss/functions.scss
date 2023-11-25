@@ -47,12 +47,6 @@
       }
     }
 
-
-    &_holder {
-
-
-    }
-
     &_back {
       z-index: 1;
       margin-left: calc(-1 * var(--screen-offset-left));
@@ -159,17 +153,12 @@
       text-align: left;
     }
 
-    @include respond-to-min($screen_xxl) {
-
-    }
-
     @include respond-to-min($screen_wide) {
       font-size: 40px;
       line-height: 60px;
       padding: 0 40px;
       margin-bottom: 36px;
     }
-
   }
 
   &--slider {
@@ -185,10 +174,6 @@
     @include respond-to-min($screen_md) {
       max-width: 346px;
       margin-top: 0;
-    }
-
-    @include respond-to-min($screen_lg) {
-      //max-width: 386px;
     }
 
     @include respond-to-min($screen_xl) {
@@ -223,10 +208,6 @@
       @include respond-to-min($screen_xl) {
         padding: 0;
       }
-
-      @include respond-to-min($screen_wide) {
-
-      }
     }
 
     &_caption {
@@ -242,10 +223,6 @@
       @include respond-to-min($screen_md) {
         font-size: 18px;
         line-height: 21px;
-      }
-
-      @include respond-to-min($screen_xl) {
-
       }
 
       @include respond-to-min($screen_wide) {

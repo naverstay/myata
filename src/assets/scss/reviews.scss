@@ -38,10 +38,6 @@
       margin-bottom: 48px;
     }
 
-    @include respond-to-min($screen_xxl) {
-
-    }
-
     @include respond-to-min($screen_wide) {
       font-size: 48px;
       line-height: 60px;
@@ -167,10 +163,6 @@
         line-height: 18px;
       }
 
-      @include respond-to-min($screen_xxl) {
-
-      }
-
       @include respond-to-min($screen_wide) {
         padding-top: 12px;
         font-size: 16px;
@@ -205,8 +197,6 @@
           line-height: 26px;
         }
       }
-
-
     }
 
     &_controls {
@@ -232,10 +222,6 @@
       @include respond-to-min($screen_xl) {
         --slider-btn-size: 46px;
         margin: calc(-0.5 * var(--slider-btn-size)) calc(-1 * var(--slider-btn-size));
-      }
-
-      @include respond-to-min($screen_xxl) {
-
       }
 
       @include respond-to-min($screen_wide) {
@@ -275,10 +261,6 @@
     @include respond-to-min($screen_xl) {
       margin-top: 34px;
       margin-bottom: 10px;
-    }
-
-    @include respond-to-min($screen_xxl) {
-
     }
 
     @include respond-to-min($screen_wide) {

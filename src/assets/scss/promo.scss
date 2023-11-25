@@ -28,7 +28,6 @@
   }
 
   @include respond-to-min($screen_wide) {
-    //grid-template-columns: 1fr 1.1fr;
     padding: 25px 90px 75px 155px;
     border-radius: 120px 20px 120px 120px;
   }
@@ -43,10 +42,6 @@
       font-size: 32px;
       line-height: 36px;
       gap: 8px;
-    }
-
-    @include respond-to-min($screen_lg) {
-
     }
 
     @include respond-to-min($screen_xl) {
@@ -88,20 +83,11 @@
       max-width: none;
       margin-left: -30px;
     }
-
   }
 
   &--screen {
     --screen-offset: 24px;
     margin: 0 -40px;
-
-    @include respond-to-min($screen_md) {
-
-    }
-
-    @include respond-to-min($screen_lg) {
-
-    }
 
     @include respond-to-min($screen_xl) {
       --screen-offset: 60px;
@@ -273,10 +259,6 @@
       max-width: 460px;
     }
 
-    @include respond-to-min($screen_lg) {
-
-    }
-
     @include respond-to-min($screen_xl) {
       font-size: 17px;
       line-height: 23px;
@@ -302,10 +284,6 @@
       line-height: 36px;
     }
 
-    @include respond-to-min($screen_lg) {
-
-    }
-
     @include respond-to-min($screen_xl) {
       font-size: 42px;
       line-height: 46px;
@@ -319,7 +297,6 @@
       margin-bottom: 4px;
       max-width: none;
     }
-
   }
 
   @include respond-to-max($screen_xl) {
