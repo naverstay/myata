@@ -280,7 +280,7 @@ body {
 
   @include respond-to-min(map-get($screens, $key)) {
     //.show__after-#{$key} {
-    //  display: unset;
+    //  display: unset !important;
     //}
 
     .hide__after-#{$key} {

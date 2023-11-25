@@ -38,6 +38,10 @@
       max-width: none;
       column-count: 2;
       column-gap: 110px;
+
+      &_more {
+        display: block !important;
+      }
     }
 
     @include respond-to-min($screen_wide) {

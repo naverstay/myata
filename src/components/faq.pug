@@ -11,12 +11,13 @@ mixin faq(props = {})
           .faq--item_text
             p!= lorem
 
-      +loop_while(3)
-        .faq--item.hide__before-xl
-          .faq--item_title.relative Как понять, что чат безопасен?
-          .faq--item_text
-            p!= lorem
+      .hide__before-xl.faq--list_more.js-toggle-block(data-toggle='faq-list')
+        +loop_while(3)
+          .faq--item
+            .faq--item_title.relative Как понять, что чат безопасен?
+            .faq--item_text
+              p!= lorem
 
     .faq--more.hide__after-xl.flex.__center
-      span.btn.btn--green.__s-64.btn--round.js-toogle-faq(data-toggle='faq-list')
+      span.btn.btn--green.__s-64.btn--round.js-toggle-faq(data-toggle='faq-list')
         span Больше вопросов

@@ -54,6 +54,92 @@ const initPopup = () => {
   });
 };
 
+const slideUp = function (e) {
+  let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 500;
+  e.style.transitionProperty = "height, margin, padding",
+    e.style.transitionDuration = t + "ms",
+    e.style.boxSizing = "border-box",
+    e.style.height = e.offsetHeight + "px",
+    e.offsetHeight,
+    e.style.overflow = "hidden",
+    e.style.height = 0,
+    e.style.paddingTop = 0,
+    e.style.paddingBottom = 0,
+    e.style.marginTop = 0,
+    e.style.marginBottom = 0,
+    window.setTimeout((function () {
+      e.style.display = "none",
+        e.style.removeProperty("height"),
+        e.style.removeProperty("padding-top"),
+        e.style.removeProperty("padding-bottom"),
+        e.style.removeProperty("margin-top"),
+        e.style.removeProperty("margin-bottom"),
+        e.style.removeProperty("overflow"),
+        e.style.removeProperty("transition-duration"),
+        e.style.removeProperty("transition-property");
+    }), t);
+};
+const slideDown = function (e) {
+  let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 500;
+  e.style.removeProperty("display");
+  let i = window.getComputedStyle(e).display;
+  "none" === i && (i = "block"),
+    e.style.display = i;
+  let s = e.offsetHeight;
+  e.style.overflow = "hidden",
+    e.style.height = 0,
+    e.style.paddingTop = 0,
+    e.style.paddingBottom = 0,
+    e.style.marginTop = 0,
+    e.style.marginBottom = 0,
+    e.offsetHeight,
+    e.style.boxSizing = "border-box",
+    e.style.transitionProperty = "height, margin, padding",
+    e.style.transitionDuration = t + "ms",
+    e.style.height = s + "px",
+    e.style.removeProperty("padding-top"),
+    e.style.removeProperty("padding-bottom"),
+    e.style.removeProperty("margin-top"),
+    e.style.removeProperty("margin-bottom"),
+    window.setTimeout((function () {
+      e.style.removeProperty("height"),
+        e.style.removeProperty("overflow"),
+        e.style.removeProperty("transition-duration"),
+        e.style.removeProperty("transition-property");
+    }), t);
+};
+const slideToggle = function (e) {
+  let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 500,
+    i = arguments.length > 2 ? arguments[2] : void 0;
+  "none" === window.getComputedStyle(e).display ? (slideDown(e, t), "function" == typeof i && i("down")) : (slideUp(e, t), "function" == typeof i && i("up"));
+};
+
+
+const initFaqToggle = () => {
+  document.querySelectorAll(".js-toggle-faq").forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = item.dataset.toggle;
+
+      if (target) {
+        document.querySelectorAll(".js-toggle-block").forEach((block) => {
+          if (block.dataset.toggle === target) {
+            if (block.classList.contains('__open')) {
+              block.classList.remove('__open');
+              slideUp(block);
+            } else {
+              block.classList.add('__open');
+              slideDown(block);
+            }
+          }
+        });
+      }
+
+      return false;
+    });
+  });
+};
+
 const initBurger = () => {
   document.querySelectorAll(".js-toggle-menu").forEach((item) => {
     item.addEventListener("click", toggleMobileMenu);
@@ -463,6 +549,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initFunctionsSliders();
   initDatings();
   initPopup();
+  initFaqToggle();
 });
 
 const scrollUpCheck = (newScrollTop) => {
