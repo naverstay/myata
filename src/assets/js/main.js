@@ -586,7 +586,7 @@ const initDatings = () => {
   if (datingsBlock) {
     new Promise((res, rej) => {
       new Swiper(datingsBlock, {
-        speed: 5000,
+        speed: 7000,
         slidesPerView: 1,
         navigation: {
           nextEl: "#js-slider-datings-next",
