@@ -16,11 +16,11 @@
   }
 
   @include respond-to-min($screen_xxl) {
-
+    padding: 82px 130px 0;
   }
 
   @include respond-to-min($screen_wide) {
-
+    padding: 108px 180px 0;
   }
 
   &--list {
@@ -39,6 +39,10 @@
       column-count: 2;
       column-gap: 110px;
     }
+
+    @include respond-to-min($screen_wide) {
+      column-gap: 170px;
+    }
   }
 
   &--item {
@@ -56,6 +60,11 @@
 
     @include respond-to-min($screen_xl) {
       padding-left: 43px;
+      margin-bottom: 45px;
+    }
+
+    @include respond-to-min($screen_wide) {
+      padding-left: 60px;
       margin-bottom: 45px;
     }
 
@@ -106,8 +115,14 @@
       }
 
       @include respond-to-min($screen_wide) {
+        --icon-size: 44px;
         font-size: 20px;
         line-height: 23px;
+        margin-bottom: 14px;
+
+        &::before {
+          margin-right: 16px;
+        }
       }
     }
 
@@ -168,7 +183,7 @@
     @include respond-to-min($screen_wide) {
       font-size: 48px;
       line-height: 60px;
-      margin-bottom: 40px;
+      margin-bottom: 80px;
     }
   }
 }
