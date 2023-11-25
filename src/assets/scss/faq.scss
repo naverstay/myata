@@ -12,7 +12,7 @@
   }
 
   @include respond-to-min($screen_xl) {
-
+    padding: 80px 100px 0;
   }
 
   @include respond-to-min($screen_xxl) {
@@ -26,11 +26,38 @@
   &--list {
     padding: 0 14px;
     margin-bottom: 25px;
+
+    @include respond-to-min($screen_md) {
+      margin: 0 auto 25px;
+      max-width: 512px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      padding: 0;
+      margin: 0 0 -27px;
+      max-width: none;
+      column-count: 2;
+      column-gap: 110px;
+    }
   }
 
   &--item {
     padding-left: 34px;
     margin-bottom: 18px;
+
+    @include respond-to-min($screen_sm) {
+      padding-left: 40px;
+    }
+
+    @include respond-to-min($screen_md) {
+      padding-left: 47px;
+      margin-bottom: 30px;
+    }
+
+    @include respond-to-min($screen_xl) {
+      padding-left: 43px;
+      margin-bottom: 45px;
+    }
 
     &_title {
       --icon-size: 24px;
@@ -50,6 +77,22 @@
         border-radius: 100%;
         background: #808080 url($question_base64) no-repeat 50% 50%;
         background-size: 75%;
+      }
+
+      @include respond-to-min($screen_sm) {
+        --icon-size: 26px;
+
+        &::before {
+          margin-right: 13px;
+        }
+      }
+
+      @include respond-to-min($screen_md) {
+        --icon-size: 32px;
+
+        &::before {
+          margin-right: 13px;
+        }
       }
 
       @include respond-to-min($screen_md) {
@@ -80,6 +123,7 @@
       @include respond-to-min($screen_md) {
         font-size: 14px;
         line-height: 18px;
+        -webkit-line-clamp: 4;
       }
 
       @include respond-to-min($screen_xl) {
@@ -101,14 +145,20 @@
     line-height: 26px;
     margin-bottom: 24px;
 
+    @include respond-to-min($screen_sm) {
+      margin-bottom: 26px;
+    }
+
     @include respond-to-min($screen_md) {
       font-size: 28px;
+      margin-bottom: 35px;
     }
 
     @include respond-to-min($screen_xl) {
       text-align: left;
       font-size: 36px;
       line-height: 45px;
+      margin-bottom: 57px;
     }
 
     @include respond-to-min($screen_xxl) {
