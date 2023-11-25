@@ -1,7 +1,5 @@
 @import "var";
 @import "extands";
-@import "swiper/swiper";
-@import "swiper/modules/effect-fade";
 
 //  /* HEAD
 //@import "reset";
@@ -11,6 +9,8 @@
 //@import "promo";
 // HEAD */
 
+@import "swiper/swiper";
+@import "swiper/modules/effect-fade";
 @import "slider";
 @import "reviews";
 @import "functions";
@@ -20,10 +20,6 @@
 @import "footer";
 
 .page {
-  &::before {
-    content: "{{ author }}";
-  }
-
   section + section {
     display: block;
   }
