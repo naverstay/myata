@@ -1,7 +1,7 @@
 let openMobileMenu = false;
 let prevScrollPos = 0;
 
-const PROD = false;
+const PROD = process.env.NODE_ENV === 'production';
 const AUTO_PLAY_DELAY = 3000;
 
 const goTo = (top) => {
@@ -406,16 +406,7 @@ const initReviews = () => {
 
 const initDatings = () => {
   let sliderReviews;
-  let useAutoplay = {};
   const datingsBlock = document.getElementById("js-slider-datings");
-
-  if (PROD) {
-    useAutoplay = {
-      autoplay: {
-        delay: AUTO_PLAY_DELAY
-      }
-    };
-  }
 
   if (datingsBlock) {
     new Promise((res, rej) => {
@@ -449,13 +440,15 @@ const initDatings = () => {
 
       datingsBlock.style.setProperty("--slider-delay", sliderReviews.params.speed + `ms`);
 
-      //setInterval(() => {
-      //  let index = sliderReviews.activeIndex + 1;
-      //  if (index > sliderReviews.slides.length - 1) {
-      //    index = 0;
-      //  }
-      //  sliderReviews.slideTo(index);
-      //}, 5000);
+      if (PROD) {
+        setInterval(() => {
+          let index = sliderReviews.activeIndex + 1;
+          if (index > sliderReviews.slides.length - 1) {
+            index = 0;
+          }
+          sliderReviews.slideTo(index);
+        }, AUTO_PLAY_DELAY);
+      }
     });
   }
 };

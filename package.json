@@ -24,7 +24,7 @@
   "scripts": {
     "dev": "parcel -p 3007",
     "prebuild": "shx rm -rf deploy",
-    "build": "parcel build --dist-dir ./deploy",
+    "build": "NODE_ENV=production parcel build --dist-dir ./deploy",
     "buildLocal": "shx rm -rf dist && parcel build --dist-dir ./dist",
     "predeploy": "npm run build",
     "deploy": "surge --project ./deploy --domain lean-land.surge.sh"
@@ -94,7 +94,8 @@
     "postcss-sort-media-queries": "^5.2.0",
     "posthtml-beautify": "^0.7.0",
     "sharp": "^0.31.1",
-    "shx": "^0.3.4"
+    "shx": "^0.3.4",
+    "win-node-env": "^0.6.1"
   },
   "packageManager": "yarn@4.0.2",
   "dependencies": {
