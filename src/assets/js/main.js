@@ -297,7 +297,7 @@ const initSliders = () => {
       }).then(s => {
         sliderRegPhoto = s;
 
-        regPagination.style.setProperty("--slider-delay", sliderRegPhoto.params.speed + `ms`);
+        regPagination.style.setProperty("--slider-delay", (sliderRegPhoto.passedParams?.autoplay?.delay ?? AUTO_PLAY_DELAY) + `ms`);
 
         sliderRegPhoto.slideTo(1);
       });
@@ -368,6 +368,7 @@ const initFunctionsSliders = () => {
   if (functionsText && funcPhoto1 && funcPhoto2) {
     new Promise((res, rej) => {
       new Swiper(funcPhoto1, {
+        ...useAutoplay,
         //loop: true,
         speed: 500,
         slidesPerView: 1,
@@ -392,7 +393,9 @@ const initFunctionsSliders = () => {
             if (sliderFunctions && !sliderFunctions?.destroyed) {
               sliderFunctions.slideTo(this.activeIndex);
             }
-            sliderPhoto2.slideTo(this.activeIndex);
+            if (sliderPhoto2 && !sliderPhoto2?.destroyed) {
+              sliderPhoto2.slideTo(this.activeIndex);
+            }
 
             updateSlideIndexes(this.activeIndex);
           }
@@ -401,7 +404,7 @@ const initFunctionsSliders = () => {
     }).then(s => {
       sliderPhoto1 = s;
 
-      funcPagination.style.setProperty("--slider-delay", sliderPhoto1.params.speed + `ms`);
+      funcPagination.style.setProperty("--slider-delay", (sliderPhoto1.passedParams?.autoplay?.delay ?? AUTO_PLAY_DELAY) + `ms`);
 
       new Promise((res, rej) => {
         new Swiper(funcPhoto2, {
