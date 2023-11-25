@@ -126,6 +126,7 @@
 
   img {
     max-width: 100%;
+    height: auto;
   }
 
   @include respond-to-min($screen_sm) {
