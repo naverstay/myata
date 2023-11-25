@@ -132,6 +132,10 @@
       font-weight: 500;
       line-height: 16px;
 
+      h4 {
+        font-weight: 500;
+      }
+
       @include respond-to-min($screen_md) {
         font-size: 16px;
         line-height: 18px;

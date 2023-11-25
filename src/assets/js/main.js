@@ -1,5 +1,6 @@
 let openMobileMenu = false;
 let prevScrollPos = 0;
+let scrollTrigger;
 
 const PROD = process.env.NODE_ENV === 'production';
 const AUTO_PLAY_DELAY = 3000;
@@ -305,6 +306,90 @@ const initSliders = () => {
   }
 };
 
+
+const initAdvantagesSliders = () => {
+  let sliderRegPhoto, sliderRegText;
+  let useAutoplay = {};
+  const regPagination = document.getElementById("js-slider-reg-pagination");
+  const regPhoto = document.getElementById("js-slider-reg-photo");
+  const regText = document.getElementById("js-slider-reg-text");
+
+  if (PROD) {
+    useAutoplay = {
+      autoplay: {
+        delay: AUTO_PLAY_DELAY
+      }
+    };
+  }
+
+  if (regPhoto && regText) {
+    new Promise((res, rej) => {
+      new Swiper(regText, {
+        //loop: true,
+        centeredSlides: true,
+        allowTouchMove: false,
+        speed: 500,
+        effect: "fade",
+        fadeEffect: {
+          crossFade: true
+        },
+        slidesPerView: 1,
+        spaceBetween: 0,
+        navigation: {
+          nextEl: "#js-slider-reg-next",
+          prevEl: "#js-slider-reg-prev"
+        },
+        on: {
+          init: (swp) => {
+            res(swp);
+          }
+        }
+      });
+    }).then(s => {
+      sliderRegText = s;
+
+      new Promise((res, rej) => {
+        new Swiper(regPhoto, {
+          //loop: true,
+          ...useAutoplay,
+          speed: 500,
+          //effect: "coverflow",
+          effect: "fade",
+          centeredSlides: true,
+          pagination: {
+            el: regPagination,
+            clickable: true,
+            type: "bullets"
+          },
+          navigation: {
+            nextEl: "#js-slider-reg-next",
+            prevEl: "#js-slider-reg-prev"
+          },
+          controller: {
+            by: "container",
+            control: "#js-slider-reg-text"
+          },
+          keyboard: {
+            enabled: true
+          },
+          on: {
+            init: (swp) => {
+              res(swp);
+            }
+          },
+          slidesPerView: 1
+        });
+      }).then(s => {
+        sliderRegPhoto = s;
+
+        regPagination.style.setProperty("--slider-delay", (sliderRegPhoto.passedParams?.autoplay?.delay ?? AUTO_PLAY_DELAY) + `ms`);
+
+        sliderRegPhoto.slideTo(1);
+      });
+    });
+  }
+};
+
 const initFunctionsSliders = () => {
   let sliderPhoto1, sliderPhoto2, sliderFunctions;
   let useAutoplay = {};
@@ -467,6 +552,7 @@ const initReviews = () => {
     new Promise((res, rej) => {
       new Swiper(reviewsBlock, {
         ...useAutoplay,
+        loop: true,
         speed: 600,
         centeredSlides: true,
         navigation: {
@@ -500,7 +586,7 @@ const initDatings = () => {
   if (datingsBlock) {
     new Promise((res, rej) => {
       new Swiper(datingsBlock, {
-        speed: 2000,
+        speed: 5000,
         slidesPerView: 1,
         navigation: {
           nextEl: "#js-slider-datings-next",
@@ -527,7 +613,7 @@ const initDatings = () => {
     }).then(s => {
       sliderReviews = s;
 
-      datingsBlock.style.setProperty("--slider-delay", sliderReviews.params.speed + `ms`);
+      //datingsBlock.style.setProperty("--slider-delay", 1000 + `ms`);
 
       if (PROD) {
         setInterval(() => {
@@ -547,7 +633,8 @@ document.addEventListener("DOMContentLoaded", function () {
   initBurger();
   initGoto();
   initOverlay();
-  initSliders();
+  //initSliders();
+  initAdvantagesSliders();
   initReviews();
   initFunctionsSliders();
   initDatings();
@@ -558,7 +645,15 @@ document.addEventListener("DOMContentLoaded", function () {
 const scrollUpCheck = (newScrollTop) => {
   document.documentElement.classList.toggle("__scroll-hide", newScrollTop > 150);
   document.documentElement.classList.toggle("__scroll-up", newScrollTop === 0 ? false : prevScrollPos > newScrollTop);
-  document.documentElement.classList.toggle("__scroll-screen", newScrollTop > window.innerHeight);
+
+  if (!scrollTrigger) {
+    scrollTrigger = document.querySelector(".js-header-trigger");
+  }
+
+  if (scrollTrigger) {
+    document.documentElement.classList.toggle("__scroll-screen", scrollTrigger.getBoundingClientRect().top <= 0);
+  }
+
   prevScrollPos = newScrollTop;
 };
 

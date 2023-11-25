@@ -339,6 +339,7 @@
       gap: 4px 12px;
       border-radius: 20px;
       background: $color_white;
+      transition: box-shadow .3s;
 
       &:hover {
         box-shadow: inset 0 3px 14px 0 #00000014, inset 0 0 1px 0 #0000000a;

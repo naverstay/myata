@@ -12,6 +12,7 @@
 .slider {
 
   &--button {
+    user-select: none;
     pointer-events: all;
     cursor: pointer;
     transition: background .3s;
@@ -99,6 +100,10 @@
           height: 5px;
           width: 46px;
         }
+      }
+
+      @include respond-to-min($screen_sm) {
+        margin-top: -2px;
       }
 
       @include respond-to-min($screen_xl) {
@@ -205,6 +210,10 @@
       width: 100%;
       margin: 0 auto;
 
+      &.__fade {
+        max-width: 117px;
+      }
+
       @include respond-to-min($screen_sm) {
         max-width: 300px;
       }
@@ -212,18 +221,65 @@
       @include respond-to-min($screen_md) {
         max-width: none;
         margin: 0;
+
+        &.__fade {
+          max-width: 310px;
+          margin: 0 auto;
+
+          + .slider--reg_text {
+            .slider--reg_controls {
+              right: 65px;
+              left: 65px;
+            }
+          }
+
+          .slider--reg_pagination {
+            margin-top: -8px;
+          }
+        }
       }
 
       @include respond-to-min($screen_xl) {
         --slider-gap: 205px;
+
+        &.__fade {
+          --slider-gap: 110px;
+
+          + .slider--reg_text {
+            .slider--reg_controls {
+              right: unset;
+              left: 50px;
+            }
+          }
+
+          .slider--reg_pagination {
+            margin-top: 37px;
+          }
+        }
       }
 
       @include respond-to-min($screen_xxl) {
         --slider-gap: 225px;
+
+        &.__fade {
+          --slider-gap: 119px;
+
+          .slider--reg_pagination {
+            margin-top: 27px;
+          }
+        }
       }
 
       @include respond-to-min($screen_wide) {
         --slider-gap: 300px;
+
+        &.__fade {
+          --slider-gap: 146px;
+
+          .slider--reg_pagination {
+            margin-top: 37px;
+          }
+        }
       }
 
       &-inner {
@@ -248,20 +304,69 @@
       }
     }
 
+    &_aside {
+      --aside-offset-x: 50%;
+      --aside-offset-y: -46%;
+      //opacity: 0.6;
+      position: absolute;
+      top: 50%;
+      z-index: -1;
+      transform: translate(calc(-1 * var(--aside-offset-x)), var(--aside-offset-y));
+      padding: 7.5%;
+
+      img {
+        height: 100%;
+      }
+
+      + .slider--reg_aside {
+        transform: translate(var(--aside-offset-x), var(--aside-offset-y));
+      }
+
+      @include respond-to-min($screen_sm) {
+
+      }
+
+      @include respond-to-min($screen_md) {
+
+      }
+
+      @include respond-to-min($screen_lg) {
+
+      }
+
+      @include respond-to-min($screen_xl) {
+        --aside-offset-y: -50%;
+        padding: 8%;
+      }
+
+      @include respond-to-min($screen_xxl) {
+
+      }
+
+      @include respond-to-min($screen_wide) {
+
+      }
+    }
+
     &_image {
       max-width: 100%;
       display: inline-block;
       margin: 0 auto;
+      transition: filter .3s;
 
       img {
         max-width: 100%;
         //filter: drop-shadow(0px 9px 54px rgba(0, 0, 0, 0.16));
-        filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.16));
+
+        .swiper-slide-active & {
+          filter: drop-shadow(0px 5px 30px rgba(0, 0, 0, 0.16));
+          //filter: drop-shadow(0px 9px 54px rgba(0, 0, 0, 0.16));
+        }
       }
     }
 
     @include respond-to-min($screen_md) {
-      padding: 38px 30px 34px;
+      padding: 38px 30px 30px;
       max-width: 560px;
     }
 
@@ -273,7 +378,7 @@
     @include respond-to-min($screen_xl) {
       margin: 0 auto;
       max-width: 890px;
-      padding: 107px 0 85px;
+      padding: 107px 0 80px;
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
