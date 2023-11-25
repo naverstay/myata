@@ -325,7 +325,7 @@ const initAdvantagesSliders = () => {
   if (regPhoto && regText) {
     new Promise((res, rej) => {
       new Swiper(regText, {
-        //loop: true,
+        loop: true,
         centeredSlides: true,
         allowTouchMove: false,
         speed: 500,
@@ -350,8 +350,8 @@ const initAdvantagesSliders = () => {
 
       new Promise((res, rej) => {
         new Swiper(regPhoto, {
-          //loop: true,
           ...useAutoplay,
+          loop: true,
           speed: 500,
           //effect: "coverflow",
           effect: "fade",
