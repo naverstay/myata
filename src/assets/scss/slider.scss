@@ -315,10 +315,6 @@
       transform: translate(calc(-1 * var(--aside-offset-x)), var(--aside-offset-y));
       padding: 7.5%;
 
-      img {
-        height: 100%;
-      }
-
       + .slider--reg_aside {
         transform: translate(var(--aside-offset-x), var(--aside-offset-y));
       }
@@ -336,6 +332,7 @@
       transition: filter .3s;
 
       img {
+        height: auto;
         max-width: 100%;
         //filter: drop-shadow(0px 9px 54px rgba(0, 0, 0, 0.16));
 

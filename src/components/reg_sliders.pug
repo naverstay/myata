@@ -13,11 +13,11 @@ mixin reg_sliders(props = {})
             each img, i in images
               .swiper-slide.slide
                 .slider--reg_image.relative
-                  +img_src('./assets/image/slides/', 'phone-' + img, 'png')
+                  +img_src('./assets/image/slides/', 'phone-' + img, 'png')(width=328 height=702)
                   .slider--reg_aside
-                    +img_src('./assets/image/slides/', 'phone-' + images[getPrevIndex(i)], 'png')
+                    +img_src('./assets/image/slides/', 'phone-' + images[getPrevIndex(i)], 'png')(width=328 height=702)
                   .slider--reg_aside
-                    +img_src('./assets/image/slides/', 'phone-' + images[getPrevIndex(i)], 'png')
+                    +img_src('./assets/image/slides/', 'phone-' + images[getPrevIndex(i)], 'png')(width=328 height=702)
 
       #js-slider-reg-pagination.swiper-pagination.slider--reg_pagination.flex.__center
 
