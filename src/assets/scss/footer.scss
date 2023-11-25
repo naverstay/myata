@@ -58,7 +58,7 @@ footer {
     font-weight: 500;
     line-height: 14px;
     color: #808080;
-    padding: 28px 0 26px;
+    padding: 26px 0;
 
     @include respond-to-min($screen_md) {
       padding: 30px 0;
@@ -68,7 +68,7 @@ footer {
   &--app {
     --app-image-gap: 5px;
     gap: 5px;
-    padding: 14px 0 24px;
+    padding: 14px 0 26px;
 
     @include respond-to-min($screen_sm) {
       gap: 8px;
