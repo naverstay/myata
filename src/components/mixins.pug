@@ -16,7 +16,7 @@ mixin img_src(path, name, ext)
   - let as = '?as=avif';
   - let x1 = path + name + '.' + ext + as;
 
-  img(alt='img' src=x1 loading='lazy' srcset=path + name + '@2x.' + ext + as + ' 2x, ' + x1 + ' 1x')&attributes(attributes)
+  img(alt='img' src=x1 srcset=path + name + '@2x.' + ext + as + ' 2x, ' + x1 + ' 1x')&attributes(attributes)
 
 mixin loop_while(counter)
   - let i = 0;

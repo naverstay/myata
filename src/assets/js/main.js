@@ -1,3 +1,6 @@
+//import Swiper from "swiper";
+//import {Controller, Navigation, Keyboard, Mousewheel, Pagination, EffectCoverflow, EffectFade} from "swiper/modules";
+
 let openMobileMenu = false;
 let prevScrollPos = 0;
 let scrollTrigger;
@@ -216,6 +219,7 @@ const initSliders = () => {
     new Promise((res, rej) => {
       new Swiper(regText, {
         //loop: true,
+        //   modules: [Navigation],
         centeredSlides: true,
         allowTouchMove: false,
         speed: 500,
@@ -236,8 +240,9 @@ const initSliders = () => {
 
       new Promise((res, rej) => {
         new Swiper(regPhoto, {
-          //loop: true,
           ...useAutoplay,
+          //   modules: [EffectCoverflow, Controller, Mousewheel, Navigation, Keyboard, Pagination],
+          //loop: true,
           speed: 500,
           effect: "coverflow",
           centeredSlides: true,
@@ -325,6 +330,7 @@ const initAdvantagesSliders = () => {
   if (regPhoto && regText) {
     new Promise((res, rej) => {
       new Swiper(regText, {
+        //   modules: [EffectFade, Navigation],
         loop: true,
         centeredSlides: true,
         allowTouchMove: false,
@@ -351,9 +357,9 @@ const initAdvantagesSliders = () => {
       new Promise((res, rej) => {
         new Swiper(regPhoto, {
           ...useAutoplay,
+          //   modules: [EffectFade, Controller, Mousewheel, Navigation, Keyboard, Pagination],
           loop: true,
           speed: 500,
-          //effect: "coverflow",
           effect: "fade",
           centeredSlides: true,
           pagination: {
@@ -417,6 +423,7 @@ const initFunctionsSliders = () => {
     new Promise((res, rej) => {
       new Swiper(functionsText, {
         //loop: true,
+        //   modules: [Mousewheel],
         allowTouchMove: true,
         speed: 500,
         slidesPerView: 1,
@@ -454,6 +461,7 @@ const initFunctionsSliders = () => {
     new Promise((res, rej) => {
       new Swiper(funcPhoto1, {
         ...useAutoplay,
+        //   modules: [Navigation, EffectFade, Pagination],
         //loop: true,
         speed: 500,
         slidesPerView: 1,
@@ -494,6 +502,7 @@ const initFunctionsSliders = () => {
       new Promise((res, rej) => {
         new Swiper(funcPhoto2, {
           //loop: true,
+          //   modules: [EffectFade],
           speed: 500,
           slidesPerView: 1,
           effect: "fade",
@@ -552,6 +561,7 @@ const initReviews = () => {
     new Promise((res, rej) => {
       new Swiper(reviewsBlock, {
         ...useAutoplay,
+        //   modules: [Mousewheel, Navigation, Keyboard],
         loop: true,
         speed: 600,
         centeredSlides: true,
@@ -586,6 +596,7 @@ const initDatings = () => {
   if (datingsBlock) {
     new Promise((res, rej) => {
       new Swiper(datingsBlock, {
+        //   modules: [Navigation],
         speed: 2000,
         slidesPerView: 1,
         navigation: {

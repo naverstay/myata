@@ -13,11 +13,11 @@ mixin reg_sliders(props = {})
             each img, i in images
               .swiper-slide.slide
                 .slider--reg_image.relative
-                  +img_src('./assets/image/slides/', 'phone-' + img, 'png')(width=328 height=702)
+                  +img_src('./assets/image/slides/', 'phone-' + img, 'png')(loading='lazy' width=328 height=702)
                   .slider--reg_aside
-                    +img_src('./assets/image/slides/', 'phone-' + images[getPrevIndex(i)], 'png')(width=328 height=702)
+                    +img_src('./assets/image/slides/', 'phone-' + images[getPrevIndex(i)], 'png')(loading='lazy' width=328 height=702)
                   .slider--reg_aside
-                    +img_src('./assets/image/slides/', 'phone-' + images[getPrevIndex(i)], 'png')(width=328 height=702)
+                    +img_src('./assets/image/slides/', 'phone-' + images[getPrevIndex(i)], 'png')(loading='lazy' width=328 height=702)
 
       #js-slider-reg-pagination.swiper-pagination.slider--reg_pagination.flex.__center
 
@@ -31,6 +31,6 @@ mixin reg_sliders(props = {})
 
       .slider--reg_controls.flex.__between
         #js-slider-reg-prev.btn--green.swiper-button-prev.slider--button.__prev.flex.__center.__center-align
-          img(alt='img' src='./assets/svg/arrow_l.svg' width=42 height=42)
+          img(alt='img' loading='lazy' src='./assets/svg/arrow_l.svg' width=42 height=42)
         #js-slider-reg-next.btn--green.swiper-button-next.slider--button.__next.flex.__center.__center-align
-          img(alt='img' src='./assets/svg/arrow_r.svg' width=42 height=42)
+          img(alt='img' loading='lazy' src='./assets/svg/arrow_r.svg' width=42 height=42)

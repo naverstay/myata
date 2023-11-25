@@ -1,9 +1,17 @@
 @import "var";
 @import "extands";
-@import "swiper/swiper";
-@import "swiper/modules/effect-fade";
 @import "reset";
 @import "base";
 @import "button";
 @import "header";
 @import "promo";
+
+footer {
+  display: none;
+}
+
+.page {
+  section + section {
+    display: none;
+  }
+}

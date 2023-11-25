@@ -26,8 +26,9 @@
     "prebuild": "shx rm -rf deploy",
     "build": "NODE_ENV=production parcel build --dist-dir ./deploy",
     "buildLocal": "shx rm -rf dist && parcel build --public-url ./ --dist-dir ./dist",
-    "predeploy": "npm run build",
-    "deploy": "surge --project ./deploy --domain lean-land.surge.sh"
+    "predeploy": "npm run build && node inline-styles.js css && node inline-styles.js html",
+    "deploy": "surge --project ./deploy --domain lean-land.surge.sh",
+    "updateSurge": "surge --project ./deploy --domain lean-land.surge.sh"
   },
   "staticFiles": {
     "staticFiles": {
@@ -94,8 +95,7 @@
     "postcss-combine-duplicated-selectors": "^10.0.3",
     "postcss-momentum-scrolling": "^3.14.22",
     "postcss-sort-media-queries": "^5.2.0",
-    "posthtml-beautify": "^0.7.0",
-    "sharp": "^0.31.1",
+    "sharp": "0.31.3",
     "shx": "^0.3.4",
     "win-node-env": "^0.6.1"
   },
