@@ -181,6 +181,8 @@ img {
 }
 
 .page {
+  flex: 1 0 auto;
+
   &--popups {
     position: fixed;
     top: 0;

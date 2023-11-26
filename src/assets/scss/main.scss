@@ -19,8 +19,6 @@
 @import "popup";
 @import "footer";
 
-.page {
-  section + section {
-    display: block;
-  }
+.section--spacer {
+  display: none;
 }

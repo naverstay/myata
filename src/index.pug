@@ -13,12 +13,15 @@ block head
   - let lorem = 'Приложение по сути неплохое: визуал симпатичный, довольно удобное в&nbsp;использовании, весит немного, не&nbsp;тормозит. Регистрация быстрая и простая, достаточно номера телефона. Мне пока не удалось довольно удобное в&nbsp;использовании, весит немного, не&nbsp;тормозит. Регистрация быстрая и простая, достаточно номера телефона. Мне пока не удалось';
 
 block content
-  main.page.relative
+  main.page.relative.flex.__column
     section#section-0.section--holder.__white.__end
       .section
         +promo()
 
         .section--end.__left.hide__after-xl
+
+    section.section--holder.__gray.__start.ovh.section--spacer
+      .section
 
     section#section-1.section--holder.__gray.__end.__start.ovh.js-header-trigger
       .section

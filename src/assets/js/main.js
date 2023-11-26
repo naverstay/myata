@@ -200,6 +200,14 @@ const appHeight = () => {
   doc.style.setProperty("--app-scroll-size", getScrollbarWidth() + "px");
 };
 
+const removeHeadStyles = () => {
+  let rm = document.getElementById("remove-styles");
+
+  if (rm) {
+    rm.remove();
+  }
+};
+
 const initSliders = () => {
   let sliderRegPhoto, sliderRegText;
   let useAutoplay = {};
@@ -649,6 +657,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initReviews();
   initFunctionsSliders();
   initDatings();
+  removeHeadStyles();
   initPopup();
   initFaqToggle();
 });

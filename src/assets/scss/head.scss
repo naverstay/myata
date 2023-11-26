@@ -5,13 +5,3 @@
 @import "button";
 @import "header";
 @import "promo";
-
-footer {
-  display: none;
-}
-
-.page {
-  section + section {
-    display: none;
-  }
-}
