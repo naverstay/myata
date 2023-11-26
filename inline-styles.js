@@ -1,5 +1,22 @@
 const fs = require('fs');
 const path = require('path');
+const PurgeCSS = require('purgecss').PurgeCSS;
+
+async function purifyCSS(styles) {
+  const content = ['deploy/**/*.html', 'deploy/**/*.js'];
+
+  return await new PurgeCSS().purge({
+    content: content,
+    css: [styles],
+    safelist: {
+      standard: [':focus', ':host', /^swiper-/],
+      deep: [],
+      greedy: [],
+      keyframes: [],
+      variables: []
+    }
+  });
+}
 
 function processDirectory(directoryPath) {
   const files = fs.readdirSync(directoryPath);
@@ -78,6 +95,21 @@ function processCssFile(filePath) {
           console.log(`File ${fileName} processed and saved.`);
         }
       });
+
+      //purifyCSS({raw: modifiedData}).then(result => {
+      //  const fileName = filePath.replace(/.css$/, '-p.css');
+      //
+      //  console.log('purifyCSS end', fileName, modifiedData.length, result[0].css.length);
+      //
+      //  fs.writeFile(fileName, result[0].css, (writeErr) => {
+      //    if (writeErr) {
+      //      console.error(`Error writing file ${fileName}:`, writeErr);
+      //    } else {
+      //      console.log(`File ${fileName} processed and saved.`);
+      //
+      //    }
+      //  });
+      //});
     });
   } catch (error) {
     console.error(`Error processing SCSS file ${filePath}:`, error);

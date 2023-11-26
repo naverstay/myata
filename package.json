@@ -79,6 +79,7 @@
     ]
   },
   "devDependencies": {
+    "@parcel/core": "^2.10.3",
     "@parcel/packager-raw-url": "2.10.3",
     "@parcel/transformer-babel": "^2.10.3",
     "@parcel/transformer-js": "^2.10.3",
@@ -95,6 +96,9 @@
     "postcss-combine-duplicated-selectors": "^10.0.3",
     "postcss-momentum-scrolling": "^3.14.22",
     "postcss-sort-media-queries": "^5.2.0",
+    "purgecss": "^5.0.0",
+    "rcs-core": "^3.7.1",
+    "rename-css-selectors": "^4.1.0",
     "sharp": "0.31.3",
     "shx": "^0.3.4",
     "win-node-env": "^0.6.1"
