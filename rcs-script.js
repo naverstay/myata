@@ -244,7 +244,6 @@ async function processFiles() {
           'footer--copy': 'sw',
           'footer--app': 'sx',
           'footer--download': 'sk',
-          'section--spacer': 's_',
           'faq--list_more': 'sj',
 
           // SWIPER

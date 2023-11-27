@@ -30,12 +30,14 @@ head
   <meta name="theme-color" content="#43b088">
 
   style#remove-styles.
-    .section--spacer ~ section, footer, footer ~ div {
+    footer,
+    footer ~ div,
+    #section-1 ~ section,
+    .slider--reg {
       display: none !important;
     }
-    .section--spacer {
+    #section-1 {
       flex: 1 0 auto;
-      display: block !important;
     }
 
   link(rel="stylesheet" id="inline-styles" href="./assets/scss/head.scss")
