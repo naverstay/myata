@@ -323,6 +323,7 @@ const initSliders = () => {
 const initAdvantagesSliders = () => {
   let sliderRegPhoto, sliderRegText;
   let useAutoplay = {};
+  const ADVANTAGE_SLIDER_SPEED = 500;
   const regPagination = document.getElementById("js-slider-reg-pagination");
   const regPhoto = document.getElementById("js-slider-reg-photo");
   const regText = document.getElementById("js-slider-reg-text");
@@ -342,7 +343,7 @@ const initAdvantagesSliders = () => {
         loop: true,
         centeredSlides: true,
         allowTouchMove: false,
-        speed: 500,
+        speed: ADVANTAGE_SLIDER_SPEED,
         effect: "fade",
         fadeEffect: {
           crossFade: true
@@ -367,7 +368,7 @@ const initAdvantagesSliders = () => {
           ...useAutoplay,
           //   modules: [EffectFade, Controller, Mousewheel, Navigation, Keyboard, Pagination],
           loop: true,
-          speed: 500,
+          speed: ADVANTAGE_SLIDER_SPEED,
           effect: "fade",
           centeredSlides: true,
           pagination: {
@@ -588,7 +589,7 @@ const initReviews = () => {
             res(swp);
           }
         },
-        slidesPerView: 1
+        slidesPerView: 'auto'
       });
     }).then(s => {
       sliderReviews = s;
@@ -632,7 +633,7 @@ const initDatings = () => {
     }).then(s => {
       sliderReviews = s;
 
-      datingsBlock.style.setProperty("--slider-delay", sliderReviews.params.speed + `ms`);
+      //datingsBlock.style.setProperty("--slider-delay", sliderReviews.params.speed + `ms`);
 
       if (PROD) {
         setInterval(() => {

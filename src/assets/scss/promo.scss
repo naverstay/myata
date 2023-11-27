@@ -199,7 +199,7 @@
     }
 
     &_item {
-      border-left: 2px solid $color_mint;
+      border-left: 2px solid transparentize($color_mint, .7);
       padding: 0 8px;
       text-align: left;
 
