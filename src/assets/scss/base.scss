@@ -99,6 +99,10 @@ img {
     position: relative;
     padding-bottom: 35px;
 
+    &:only-child {
+      flex: 1 0 auto;
+    }
+
     &::before {
       content: '';
       position: absolute;

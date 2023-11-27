@@ -654,10 +654,10 @@ document.addEventListener("DOMContentLoaded", function () {
   initOverlay();
   //initSliders();
   initAdvantagesSliders();
+  removeHeadStyles();
   initReviews();
   initFunctionsSliders();
   initDatings();
-  removeHeadStyles();
   initPopup();
   initFaqToggle();
 });
