@@ -17,11 +17,11 @@
   &--holder {
     position: relative;
     z-index: 5;
+    transition: background-color .3s;
 
     .__open-popup & {
       z-index: 4;
     }
-
 
     @include respond-to-min($screen_lg) {
       .__scroll-hide & {
@@ -30,6 +30,7 @@
         right: 0;
         left: 0;
         opacity: 0;
+        background-color: transparent;
 
         .header {
           transition: padding .3s, margin .3s, transform .3s, background .3s;
@@ -294,7 +295,7 @@
   padding-right: 10px;
 
   @include respond-to-min($screen_lg) {
-    padding-right: 20px;
+    padding-right: 12px;
   }
 
   @include respond-to-min($screen_xl) {

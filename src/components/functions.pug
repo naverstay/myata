@@ -3,12 +3,12 @@ include ./mixins
 mixin slides(invert)
   if (invert)
     .swiper-slide.slide
-      img(alt='img' src=('./assets/image/slides/slide_a.png') width=240 height=534)
+      img(alt='img' src=('./assets/image/slides/slide_a.png?as=avif') width=240 height=534)
   .swiper-slide.slide
-    img(alt='img' src=('./assets/image/slides/slide_m.png') width=240 height=534)
+    img(alt='img' src=('./assets/image/slides/slide_m.png?as=avif') width=240 height=534)
   if (!invert)
     .swiper-slide.slide
-      img(alt='img' src=('./assets/image/slides/slide_a.png') width=240 height=534)
+      img(alt='img' src=('./assets/image/slides/slide_a.png?as=avif') width=240 height=534)
 
 mixin functions(props = {})
   - let title = ['Полноценный месседжер', 'Лента по интересам', 'Любимые свайпы', 'Расширенный поиск'];
