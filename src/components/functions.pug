@@ -33,16 +33,18 @@ mixin functions(props = {})
             .screens--slider_block
               #js-slider-screen-1.swiper
                 .swiper-wrapper
-                  +loop_while(2)
-                    +slides()
+                  each sld in [1,2,3,4]
+                    .swiper-slide.slide
+                      img(alt='img' src=('./assets/image/slides/back_' + sld + '@2x.png?as=avif') width=240 height=534)
 
         .screens--slider_back.relative
           .screens--slider_wrapper.relative
             .screens--slider_block
               #js-slider-screen-2.swiper
                 .swiper-wrapper
-                  +loop_while(2)
-                    +slides(true)
+                  each sld in [1,2,3,4]
+                    .swiper-slide.slide
+                      img(alt='img' src=('./assets/image/slides/front_' + sld + '@2x.png?as=avif') width=240 height=534)
 
     .functions--slider.relative
       #js-slider-functions.swiper
