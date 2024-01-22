@@ -279,6 +279,12 @@
           .slider--reg_pagination {
             margin-top: 37px;
           }
+
+          + .slider--reg_text {
+            .slider--reg_controls {
+              left: 80px;
+            }
+          }
         }
       }
 

@@ -260,10 +260,10 @@
     }
 
     @include respond-to-min($screen_xl) {
+      margin: 0;
       font-size: 17px;
       line-height: 23px;
-      margin: 0;
-      max-width: 100%;
+      max-width: 410px;
     }
 
     @include respond-to-min($screen_wide) {
