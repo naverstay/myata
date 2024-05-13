@@ -20,14 +20,25 @@
 }
 
 html {
-  @include custom-scroll();
   overflow-y: scroll;
   overflow-x: clip;
   min-height: 100%;
   display: flex;
 
-  * {
+  &.__non-webkit {
     @include custom-scroll();
+
+    * {
+      @include custom-scroll();
+    }
+  }
+
+  &.__webkit {
+    @include custom-scroll-webkit();
+
+    * {
+      @include custom-scroll-webkit();
+    }
   }
 }
 

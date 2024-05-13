@@ -96,10 +96,7 @@
   }
 }
 
-@mixin custom-scroll {
-  scrollbar-color: $scroll-thumb $scroll-track;
-  scrollbar-width: thin;
-
+@mixin custom-scroll-webkit {
   &::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -119,4 +116,9 @@
     border-radius: 3px;
     background-color: $scroll-thumb;
   }
+}
+
+@mixin custom-scroll {
+  scrollbar-color: $scroll-thumb $scroll-track;
+  scrollbar-width: thin;
 }

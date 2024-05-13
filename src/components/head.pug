@@ -47,6 +47,9 @@ head
 
   //-script(src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js")
 
+  script.
+    document.documentElement.classList.add(navigator && /AppleWebKit/i.test(navigator.userAgent) ? '__webkit' : '__non-webkit')
+
   //-script.
     var fallbackTimeout = setTimeout(function () {
       document.documentElement.classList.add('__use-local-font');
