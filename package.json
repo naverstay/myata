@@ -24,7 +24,7 @@
   "scripts": {
     "dev": "parcel -p 3007",
     "prebuild": "shx rm -rf deploy",
-    "build": "NODE_ENV=production parcel build --dist-dir ./deploy",
+    "build": "cross-env NODE_ENV=production parcel build --dist-dir ./deploy",
     "buildLocal": "shx rm -rf dist && parcel build --public-url ./ --dist-dir ./dist",
     "predeploy": "npm run build && node inline-styles.js css && node inline-styles.js html",
     "deploy": "surge --project ./deploy --domain lean-land.surge.sh",
@@ -88,6 +88,7 @@
     "@parcel/transformer-sass": "2.12.0",
     "@parcel/transformer-webmanifest": "2.12.0",
     "autoprefixer": "^10.4.19",
+    "cross-env": "^7.0.3",
     "cssnano": "^7.0.1",
     "parcel": "^2.12.0",
     "parcel-namer-struct": "^1.0.0",
@@ -100,10 +101,8 @@
     "rcs-core": "^3.7.1",
     "rename-css-selectors": "^4.1.0",
     "sharp": "0.31.3",
-    "shx": "0.3.4",
-    "win-node-env": "^0.6.1"
+    "shx": "0.3.4"
   },
-  "packageManager": "yarn@4.0.2",
   "dependencies": {
     "swiper": "^11.1.2"
   }
