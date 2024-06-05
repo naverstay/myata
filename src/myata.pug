@@ -16,10 +16,29 @@ block content
   main.page.relative.flex.__column
     section#section-0.section--holder.__white.__end
       .section
-        .functions.relative
-          ul
-            li: a(href='myata.pug') myata
-            li: a(href='tabor.pug') tabor
+        +promo()
+
+        .section--end.__left.hide__after-xl
+
+    section#section-1.section--holder.__gray.__end.__start.ovh.js-header-trigger
+      .section
+        +reg_sliders()
+
+    section#section-2.section--holder.__white.__end.__start.ovh
+      .section
+        +reviews()
+
+    section#section-3.section--holder.__gray.__end.__start.ovh
+      .section
+        +functions()
+
+    section.section--holder.__white.__end.__start.ovh
+      .section
+        +datings()
+
+    //-section#section-4.section--holder.__gray.__end.__start.ovh
+      .section
+        +faq()
 
 block scripts
   script(type="module" src="./assets/js/main.js")

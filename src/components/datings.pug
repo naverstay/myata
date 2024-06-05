@@ -14,7 +14,7 @@ mixin datings(props = {})
               each u, i in new Array(3).fill(null)
                 - let user = i + 1;
                 .swiper-slide.slide.relative(class=( 'js-user-' + user))
-                  each n, ind in new Array(9).fill(null)
+                  each n, ind in new Array(7).fill(null)
                     - let slide = ind + 1
                       +img_src('./assets/image/users/', 'user-' + user + '-' + slide, 'png')(loading='lazy' width=100 height=100 class=('datings--slider_item item-' + slide))
 

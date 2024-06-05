@@ -1,13 +1,16 @@
 include ./mixins
 
 mixin reviews(props = {})
+  - const texts = ['Искал любовь и нашел ее благодаря Мяте. Отличное приложение, все функции работают идеально. Очень доволен', 'Благодаря Мяте я нашла свою любовь. Приложение простое в использовании и помогает быстро найти подходящего партнера.', 'Любимое приложение для знакомств! Простое в использовании, нет скрытых платежей. Нашла много интересных людей.', 'Приложение Мята – отличный способ найти любовь. Удобный функционал и красивый дизайн. В общем, пользоваться приятно.', 'Мята действительно топ! Аудиозвонки и удобный мессенджер делают приложение одним из лучших для знакомств.'];
+  - const names = ['Александр М.', 'Мария А.', 'Диана К.', 'Миша П.', 'Николай С.'];
+
   .reviews
     .reviews--title Отзывы пользователей в&nbsp;PlayMarket
 
     .reviews--slider.relative
       #js-slider-reviews.swiper
         .swiper-wrapper
-          each name, ind in ['Александр', 'Светлана Р.', 'Сеня', 'Артем Р.', 'Johnny']
+          each name, ind in names
             .swiper-slide.slide
               .reviews--slider_item
                 .reviews--slider_caption.flex.__between.__center-align
@@ -16,9 +19,9 @@ mixin reviews(props = {})
                     img(alt='img' loading='lazy' src='./assets/svg/star.svg' width=23 height=24)
                     span 5
                 .reviews--slider_text
-                  p!= lorem
+                  p!= texts[ind]
 
-                .flex.__end.reviews--slider_more
+                //-.flex.__end.reviews--slider_more
                   a.link--green(href='#') Читать полностью
 
       .reviews--slider_controls.flex.__between

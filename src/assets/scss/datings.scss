@@ -1,6 +1,7 @@
 @import "var";
 
 .datings {
+  $total: 7;
   padding-top: 33px;
 
   @include respond-to-min($screen_sm) {
@@ -168,18 +169,6 @@
         display: block;
         background-size: contain;
       }
-
-      @include respond-to-min($screen_md) {
-
-      }
-
-      @include respond-to-min($screen_xl) {
-
-      }
-
-      @include respond-to-min($screen_wide) {
-
-      }
     }
 
     &_item {
@@ -201,7 +190,7 @@
       @for $i from 1 through 9 {
         $transition_delay: 100ms;
         &.item-#{$i} {
-          transition-delay: calc((var(--slider-delay) / 9) * #{$i});
+          transition-delay: calc((var(--slider-delay) / #{$total}) * #{$i});
         }
       }
 
@@ -271,18 +260,6 @@
 
       .swiper-slide-active & {
         opacity: 1;
-      }
-
-      @include respond-to-min($screen_md) {
-
-      }
-
-      @include respond-to-min($screen_xl) {
-
-      }
-
-      @include respond-to-min($screen_wide) {
-
       }
     }
   }
