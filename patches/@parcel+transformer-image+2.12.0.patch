@@ -1,0 +1,25 @@
+diff --git a/node_modules/@parcel/transformer-image/lib/loadSharp.js b/node_modules/@parcel/transformer-image/lib/loadSharp.js
+index 7cd2664..178df8d 100644
+--- a/node_modules/@parcel/transformer-image/lib/loadSharp.js
++++ b/node_modules/@parcel/transformer-image/lib/loadSharp.js
+@@ -1,6 +1,6 @@
+ "use strict";
+ 
+-const SHARP_RANGE = '^0.31.1';
++const SHARP_RANGE = '^0.33.4';
+ 
+ // This is used to load sharp on the main thread, which prevents errors when worker threads exit
+ // See https://sharp.pixelplumbing.com/install#worker-threads and https://github.com/lovell/sharp/issues/2263
+diff --git a/node_modules/@parcel/transformer-image/src/loadSharp.js b/node_modules/@parcel/transformer-image/src/loadSharp.js
+index da9dc7f..095a19b 100644
+--- a/node_modules/@parcel/transformer-image/src/loadSharp.js
++++ b/node_modules/@parcel/transformer-image/src/loadSharp.js
+@@ -2,7 +2,7 @@
+ import type {PackageManager} from '@parcel/package-manager';
+ import type {FilePath} from '@parcel/types';
+ 
+-const SHARP_RANGE = '^0.31.1';
++const SHARP_RANGE = '^0.33.4';
+ 
+ // This is used to load sharp on the main thread, which prevents errors when worker threads exit
+ // See https://sharp.pixelplumbing.com/install#worker-threads and https://github.com/lovell/sharp/issues/2263
