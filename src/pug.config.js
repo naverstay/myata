@@ -3,8 +3,8 @@ module.exports = {
     env: process.env.NODE_ENV,
     navigation: [
       'Преимущества',
-      'Отзывы',
-      'Функционал'
+      'Функционал',
+      'Отзывы'
     ]
   }
 };
