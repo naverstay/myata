@@ -282,6 +282,10 @@ img {
   display: none !important;
 }
 
+.clr-mint {
+  color: #43b088;
+}
+
 @each $key, $value in $screens {
   //.show__before-#{$key},
   //.show__after-#{$key} {
